@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace tpWinformGroup9
 {
-    public partial class Form1 : Form
+    public partial class addModify : Form
     {
-        public Form1()
+        public addModify()
         {
             InitializeComponent();
         }
