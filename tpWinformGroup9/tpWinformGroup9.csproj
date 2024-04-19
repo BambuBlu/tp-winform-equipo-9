@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8B4DAA93-65BB-4A7F-925C-A9D61891CD75}</ProjectGuid>
+    <ProjectGuid>{73242A15-4A4A-45F8-A06A-A358AFBA8068}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>tp_winform_grupo9</RootNamespace>
-    <AssemblyName>tp_winform_grupo9</AssemblyName>
+    <RootNamespace>tpWinformGroup9</RootNamespace>
+    <AssemblyName>tpWinformGroup9</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

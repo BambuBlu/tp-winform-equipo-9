@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("tp_winform_grupo9")]
+[assembly: AssemblyTitle("tpWinformGroup9")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("tp_winform_grupo9")]
+[assembly: AssemblyProduct("tpWinformGroup9")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
-[assembly: Guid("8b4daa93-65bb-4a7f-925c-a9d61891cd75")]
+[assembly: Guid("73242a15-4a4a-45f8-a06a-a358afba8068")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
 //

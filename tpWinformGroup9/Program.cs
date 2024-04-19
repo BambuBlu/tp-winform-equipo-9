@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace tp_winform_grupo9
+namespace tpWinformGroup9
 {
     internal static class Program
     {

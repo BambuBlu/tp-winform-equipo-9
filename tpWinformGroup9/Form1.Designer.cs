@@ -1,4 +1,4 @@
-﻿namespace tp_winform_grupo9
+﻿namespace tpWinformGroup9
 {
     partial class Form1
     {

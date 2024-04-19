@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace tp_winform_grupo9
+namespace tpWinformGroup9
 {
     public partial class Form1 : Form
     {

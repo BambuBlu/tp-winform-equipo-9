@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace tp_winform_grupo9.Properties
+namespace tpWinformGroup9.Properties
 {
 
 
