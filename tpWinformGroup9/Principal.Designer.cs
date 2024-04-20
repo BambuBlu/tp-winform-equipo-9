@@ -29,94 +29,118 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.addButton = new System.Windows.Forms.Button();
+            this.articleListComboBox = new System.Windows.Forms.ComboBox();
+            this.containerPanel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.brandComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.containerPanel2 = new System.Windows.Forms.Panel();
+            this.articleDataGrid = new System.Windows.Forms.DataGridView();
+            this.articleImage = new System.Windows.Forms.PictureBox();
+            this.modifyButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.containerPanel1.SuspendLayout();
+            this.containerPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.articleDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.articleImage)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // addButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(773, 434);
-            this.button1.Margin = new System.Windows.Forms.Padding(20, 3, 40, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 33);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Agregar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
+            this.addButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
+            this.addButton.FlatAppearance.BorderSize = 2;
+            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addButton.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addButton.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
+            this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addButton.Location = new System.Drawing.Point(773, 434);
+            this.addButton.Margin = new System.Windows.Forms.Padding(20, 3, 40, 3);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(122, 33);
+            this.addButton.TabIndex = 0;
+            this.addButton.Text = "Agregar";
+            this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // comboBox1
+            // articleListComboBox
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(39, 63);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(441, 21);
-            this.comboBox1.TabIndex = 5;
+            this.articleListComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.articleListComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.articleListComboBox.FormattingEnabled = true;
+            this.articleListComboBox.Location = new System.Drawing.Point(39, 63);
+            this.articleListComboBox.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
+            this.articleListComboBox.Name = "articleListComboBox";
+            this.articleListComboBox.Size = new System.Drawing.Size(441, 21);
+            this.articleListComboBox.TabIndex = 5;
             // 
-            // panel1
+            // containerPanel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.panel1.Controls.Add(this.comboBox3);
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(517, 12);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(388, 72);
-            this.panel1.TabIndex = 7;
+            this.containerPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.containerPanel1.Controls.Add(this.label4);
+            this.containerPanel1.Controls.Add(this.label3);
+            this.containerPanel1.Controls.Add(this.categoryComboBox);
+            this.containerPanel1.Controls.Add(this.brandComboBox);
+            this.containerPanel1.Controls.Add(this.label1);
+            this.containerPanel1.Location = new System.Drawing.Point(517, -13);
+            this.containerPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
+            this.containerPanel1.Name = "containerPanel1";
+            this.containerPanel1.Size = new System.Drawing.Size(388, 97);
+            this.containerPanel1.TabIndex = 7;
             // 
-            // comboBox3
+            // label4
             // 
-            this.comboBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(214, 36);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(150, 21);
-            this.comboBox3.TabIndex = 2;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Roboto Light", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(257, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Categoria";
             // 
-            // comboBox2
+            // label3
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(28, 36);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(150, 21);
-            this.comboBox2.TabIndex = 1;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Roboto Light", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(75, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Marca";
+            // 
+            // categoryComboBox
+            // 
+            this.categoryComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.categoryComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.categoryComboBox.FormattingEnabled = true;
+            this.categoryComboBox.Location = new System.Drawing.Point(213, 63);
+            this.categoryComboBox.Name = "categoryComboBox";
+            this.categoryComboBox.Size = new System.Drawing.Size(150, 21);
+            this.categoryComboBox.TabIndex = 2;
+            // 
+            // brandComboBox
+            // 
+            this.brandComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.brandComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.brandComboBox.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brandComboBox.FormattingEnabled = true;
+            this.brandComboBox.Location = new System.Drawing.Point(22, 63);
+            this.brandComboBox.Name = "brandComboBox";
+            this.brandComboBox.Size = new System.Drawing.Size(150, 21);
+            this.brandComboBox.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto Light", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(135, 12);
+            this.label1.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(125, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 13);
+            this.label1.Size = new System.Drawing.Size(132, 14);
             this.label1.TabIndex = 0;
             this.label1.Text = "Filtros de Busqueda";
             // 
@@ -130,70 +154,71 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Lista de Articulos";
             // 
-            // panel2
+            // containerPanel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Location = new System.Drawing.Point(12, 102);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(920, 309);
-            this.panel2.TabIndex = 9;
+            this.containerPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.containerPanel2.Controls.Add(this.articleDataGrid);
+            this.containerPanel2.Controls.Add(this.articleImage);
+            this.containerPanel2.Location = new System.Drawing.Point(12, 102);
+            this.containerPanel2.Name = "containerPanel2";
+            this.containerPanel2.Size = new System.Drawing.Size(920, 309);
+            this.containerPanel2.TabIndex = 9;
             // 
-            // dataGridView1
+            // articleDataGrid
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(314, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(606, 309);
-            this.dataGridView1.TabIndex = 1;
+            this.articleDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
+            this.articleDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.articleDataGrid.Location = new System.Drawing.Point(314, 0);
+            this.articleDataGrid.Name = "articleDataGrid";
+            this.articleDataGrid.Size = new System.Drawing.Size(606, 309);
+            this.articleDataGrid.TabIndex = 1;
             // 
-            // pictureBox1
+            // articleImage
             // 
-            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(5, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(299, 299);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.articleImage.ErrorImage = ((System.Drawing.Image)(resources.GetObject("articleImage.ErrorImage")));
+            this.articleImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("articleImage.InitialImage")));
+            this.articleImage.Location = new System.Drawing.Point(5, 5);
+            this.articleImage.Name = "articleImage";
+            this.articleImage.Size = new System.Drawing.Size(299, 299);
+            this.articleImage.TabIndex = 0;
+            this.articleImage.TabStop = false;
             // 
-            // button2
+            // modifyButton
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
-            this.button2.FlatAppearance.BorderSize = 2;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Roboto", 10.25F);
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(611, 434);
-            this.button2.Margin = new System.Windows.Forms.Padding(20, 3, 20, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 33);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Modificar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.modifyButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.modifyButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
+            this.modifyButton.FlatAppearance.BorderSize = 2;
+            this.modifyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.modifyButton.Font = new System.Drawing.Font("Roboto", 10.25F);
+            this.modifyButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
+            this.modifyButton.Image = ((System.Drawing.Image)(resources.GetObject("modifyButton.Image")));
+            this.modifyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.modifyButton.Location = new System.Drawing.Point(611, 434);
+            this.modifyButton.Margin = new System.Windows.Forms.Padding(20, 3, 20, 3);
+            this.modifyButton.Name = "modifyButton";
+            this.modifyButton.Size = new System.Drawing.Size(122, 33);
+            this.modifyButton.TabIndex = 10;
+            this.modifyButton.Text = "Modificar";
+            this.modifyButton.UseVisualStyleBackColor = false;
+            this.modifyButton.Click += new System.EventHandler(this.modifyButton_Click);
             // 
-            // button3
+            // deleteButton
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(108)))), ((int)(((byte)(85)))));
-            this.button3.FlatAppearance.BorderSize = 2;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Roboto", 10F);
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(108)))), ((int)(((byte)(85)))));
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(49, 434);
-            this.button3.Margin = new System.Windows.Forms.Padding(40, 3, 20, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(122, 33);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Borrar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.deleteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(108)))), ((int)(((byte)(85)))));
+            this.deleteButton.FlatAppearance.BorderSize = 2;
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteButton.Font = new System.Drawing.Font("Roboto", 10F);
+            this.deleteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(108)))), ((int)(((byte)(85)))));
+            this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
+            this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.deleteButton.Location = new System.Drawing.Point(49, 434);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(40, 3, 20, 3);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(122, 33);
+            this.deleteButton.TabIndex = 11;
+            this.deleteButton.Text = "Borrar";
+            this.deleteButton.UseVisualStyleBackColor = false;
             // 
             // Principal
             // 
@@ -201,21 +226,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(221)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(944, 501);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.modifyButton);
+            this.Controls.Add(this.containerPanel2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.containerPanel1);
+            this.Controls.Add(this.articleListComboBox);
+            this.Controls.Add(this.addButton);
             this.Name = "Principal";
             this.Text = "Ventana Princial";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.containerPanel1.ResumeLayout(false);
+            this.containerPanel1.PerformLayout();
+            this.containerPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.articleDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.articleImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,18 +247,20 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.ComboBox articleListComboBox;
+        private System.Windows.Forms.Panel containerPanel1;
+        private System.Windows.Forms.ComboBox categoryComboBox;
+        private System.Windows.Forms.ComboBox brandComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel containerPanel2;
+        private System.Windows.Forms.DataGridView articleDataGrid;
+        private System.Windows.Forms.PictureBox articleImage;
+        private System.Windows.Forms.Button modifyButton;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 
