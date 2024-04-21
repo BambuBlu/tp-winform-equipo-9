@@ -52,6 +52,10 @@
     <Compile Include="addModify.Designer.cs">
       <DependentUpon>addModify.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Articulo.cs" />
+    <Compile Include="Negocio\ArticuloNegocio.cs" />
+    <Compile Include="Negocio\CategoriaNegocio.cs" />
+    <Compile Include="Negocio\MarcaNegocio.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +91,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Vista\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
