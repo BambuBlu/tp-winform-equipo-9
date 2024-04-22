@@ -53,6 +53,8 @@
       <DependentUpon>addModify.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Articulo.cs" />
+    <Compile Include="Negocio\AccesoDatos.cs" />
+    <Compile Include="Negocio\ArticuloDatos.cs" />
     <Compile Include="Negocio\ArticuloNegocio.cs" />
     <Compile Include="Negocio\CategoriaNegocio.cs" />
     <Compile Include="Negocio\MarcaNegocio.cs" />

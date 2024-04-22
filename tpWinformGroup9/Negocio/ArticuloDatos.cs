@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 using tpWinformGroup9.Modelo;
 using System.Data.SqlClient; //Se debe agregar esta libreria para trabajar con base de datos
 
+
+//Replantear el uso de esta clase
+/*
+
+
 namespace tpWinformGroup9.Negocio
 {
      class ArticuloDatos
@@ -19,9 +24,9 @@ namespace tpWinformGroup9.Negocio
 
             try
             {
-                /*Se establecen los parametros de conexion en la seccion de server esta el . para no tener que cambiar nada 
-                 * indistintamente para cual de nosotros este haciendo pruebas con el codigo, la otra opccion es poner el nombre del desktop segun figura en tu pc */
-                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=TP_2_PROGRAMACION_3; integrated security=true"; /* en la seccion de integrated security si estas usando la autentificaciond de sql server tenes que poner el usuario y la contraseña  */
+                //Se establecen los parametros de conexion en la seccion de server esta el . para no tener que cambiar nada 
+                //indistintamente para cual de nosotros este haciendo pruebas con el codigo, la otra opccion es poner el nombre del desktop segun figura en tu pc
+                conexion.ConnectionString = "server=.\\SQLEXPRESS; database=TP_2_PROGRAMACION_3; integrated security=true"; /// en la seccion de integrated security si estas usando la autentificaciond de sql server tenes que poner el usuario y la contraseña
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "SELECT NOMBRE, MARCA, PRECIO, CANTIDAD FROM ARTICULO";
                 comando.Connection = conexion;
@@ -55,3 +60,4 @@ namespace tpWinformGroup9.Negocio
         }
     }
 }
+ */
