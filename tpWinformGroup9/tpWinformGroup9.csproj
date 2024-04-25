@@ -57,7 +57,6 @@
     <Compile Include="Modelo\Imagen.cs" />
     <Compile Include="Modelo\Marca.cs" />
     <Compile Include="Negocio\AccesoDatos.cs" />
-    <Compile Include="Negocio\ArticuloDatos.cs" />
     <Compile Include="Negocio\ArticuloNegocio.cs" />
     <Compile Include="Negocio\CategoriaNegocio.cs" />
     <Compile Include="Negocio\MarcaNegocio.cs" />

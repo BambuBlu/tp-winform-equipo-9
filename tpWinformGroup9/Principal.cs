@@ -22,13 +22,15 @@ namespace tpWinformGroup9
 
         private void modifyButton_Click(object sender, EventArgs e)
         {
-            frmAddModify addWindow = new frmAddModify();
+            Articulo articuloSeleccionado;
+            articuloSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            frmAddModify addWindow = new frmAddModify(articuloSeleccionado); //Se le manda el articulo seleccionado para poder modificarlo
             addWindow.ShowDialog();
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-          
         
             AccesoDatos accesoDatos = new AccesoDatos();
             accesoDatos.setConsulta("SELECT NOMBRE FROM ARTICULOS");
@@ -47,22 +49,9 @@ namespace tpWinformGroup9
 
         private void listaArticulos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<Articulo> lart = new List<Articulo>();
-            AccesoDatos accesoDatos = new AccesoDatos();
-            accesoDatos.setConsulta("SELECT NOMBRE, MARCA, PRECIO, CANTIDAD, URLIMAGEN FROM ARTICULOS");
-            accesoDatos.ejecutarLectura();
-            while (accesoDatos.Lector.Read())
-            {
-                Articulo aux = new Articulo();
-                aux.Nombre = (string)accesoDatos.Lector["NOMBRE"];
-                aux.Marca = (string)accesoDatos.Lector["MARCA"];
-                aux.Precio = accesoDatos.Lector.GetDecimal(2);
-                aux.Cantidad = accesoDatos.Lector.GetInt32(3);
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            List<Articulo> lart = negocio.listar(); //se abstrajo el listado de articulos para que actue como una funcion de llamado, quiza habria que modificarla
 
-                lart.Add(aux);
-                
-
-            }
             string seleccion = listaArticulos.SelectedItem.ToString();
             List<Articulo> articuloSeleccionado = new List<Articulo>();
             for (int i = 0; i < lart.Count; i++)
@@ -76,7 +65,7 @@ namespace tpWinformGroup9
                
             }
             dgvArticulos.DataSource = articuloSeleccionado;
-            accesoDatos.cerrarConexion();
+
 
         }
     }

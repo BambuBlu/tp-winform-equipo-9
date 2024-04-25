@@ -20,7 +20,7 @@ namespace tpWinformGroup9.Negocio
         }
         public AccesoDatos()
         {
-            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=TP_2_PROGRAMACION_3; integrated security=true");
+            conexion = new SqlConnection("server=.\\SQLEXPRESS; database=TP_2_DB; integrated security=true");
             comando = new SqlCommand();
         }
         public void setConsulta(string consulta)
