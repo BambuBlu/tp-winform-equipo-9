@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using System;
-using System.Security.Principal;
-using System.Text.RegularExpressions;
+﻿using System;
 using System.Collections.Generic;
 
 namespace tpWinformGroup9.Modelo

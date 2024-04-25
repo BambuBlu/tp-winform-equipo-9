@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using System;
-using System.Windows.Forms;
-using tpWinformGroup9.Modelo;
-using tpWinformGroup9;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using tpWinformGroup9.Modelo;
 
 namespace tpWinformGroup9.Negocio
 {
