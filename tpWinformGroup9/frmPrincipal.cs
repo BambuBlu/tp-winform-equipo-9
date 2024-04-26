@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using tpWinformGroup9.Modelo;
 using tpWinformGroup9.Negocio;
@@ -8,7 +9,7 @@ namespace tpWinformGroup9
 {
     public partial class frmPrincipal : Form
     {
-        
+
         public frmPrincipal()
         {
             InitializeComponent();
@@ -31,42 +32,53 @@ namespace tpWinformGroup9
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-        
-            AccesoDatos accesoDatos = new AccesoDatos();
-            accesoDatos.setConsulta("SELECT NOMBRE FROM ARTICULOS");
-            accesoDatos.ejecutarLectura();
-            
-            while (accesoDatos.Lector.Read())
-            {
-                Articulo aux = new Articulo();
-                aux.Nombre = (string)accesoDatos.Lector["NOMBRE"];
-                listaArticulos.Items.Add(aux.Nombre);
-
-            }
-
-            accesoDatos.cerrarConexion();
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            listaArticulos.DataSource = articuloNegocio.listar();
+            listaArticulos.ValueMember = "Id";
+            listaArticulos.DisplayMember = "Nombre";
+            brandComboBox.DataSource = marcaNegocio.listar();
+            brandComboBox.ValueMember = "Id";
+            brandComboBox.DisplayMember = "Descripcion";
+            categoryComboBox.DataSource = categoriaNegocio.listar();
+            categoryComboBox.ValueMember = "Id";
+            categoryComboBox.DisplayMember = "Descripcion";
         }
 
         private void listaArticulos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //List<Articulo> articuloSeleccionado = new List<Articulo>();
+            //for (int i = 0; i < lart.Count; i++)
+            //{
+
+            //    if (seleccion == lart[i].Nombre)
+            //    { 
+            //        articuloSeleccionado.Add(lart[i]);
+
+            //    }
+
+            //}
+
+
+
+        }
+
+        private void listaArticulos_SelectionChangeCommitted(object sender, EventArgs e)
+        {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            List<Articulo> lart = negocio.listar(); //se abstrajo el listado de articulos para que actue como una funcion de llamado, quiza habria que modificarla
+            List<Articulo> listaArt = negocio.listar(); //se abstrajo el listado de articulos para que actue como una funcion de llamado, quiza habria que modificarla
+            List<Articulo> selecArt = new List<Articulo>();
 
-            string seleccion = listaArticulos.SelectedItem.ToString();
-            List<Articulo> articuloSeleccionado = new List<Articulo>();
-            for (int i = 0; i < lart.Count; i++)
+            foreach (var articulo in listaArt)
             {
-
-                if (seleccion == lart[i].Nombre)
-                { 
-                    articuloSeleccionado.Add(lart[i]);
-                
+                if (articulo.Nombre == listaArticulos.SelectedItem.ToString())
+                {
+                    selecArt.Add(articulo);
+                    dgvArticulos.DataSource = selecArt.FirstOrDefault();
                 }
-               
+
             }
-            dgvArticulos.DataSource = articuloSeleccionado;
-
-
         }
     }
 }

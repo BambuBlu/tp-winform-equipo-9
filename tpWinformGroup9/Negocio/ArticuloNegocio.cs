@@ -9,26 +9,42 @@ namespace tpWinformGroup9.Negocio
     {
         public List<Articulo> listar()
         {
-            List<Articulo> lart = new List<Articulo>();
+            List<Articulo> listaArt = new List<Articulo>();
             AccesoDatos accesoDatos = new AccesoDatos();
-            accesoDatos.setConsulta("SELECT NOMBRE, MARCA, PRECIO, CANTIDAD, URLIMAGEN FROM ARTICULOS");
-            accesoDatos.ejecutarLectura();
-
-            while (accesoDatos.Lector.Read())
+            try
             {
-                Articulo aux = new Articulo();
-                aux.Nombre = (string)accesoDatos.Lector["NOMBRE"];
-                aux.Marca.Descripcion = (string)accesoDatos.Lector["MARCA"];
-                aux.Precio = accesoDatos.Lector.GetDecimal(2);
-                aux.Cantidad = accesoDatos.Lector.GetInt32(3);
+                accesoDatos.setConsulta("SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, A.Precio FROM ARTICULOS A, MARCAS M, CATEGORIAS C WHERE A.IdMarca = M.Id AND A.IdCategoria = C.Id");
+                accesoDatos.ejecutarLectura();
 
-                lart.Add(aux);
+                while (accesoDatos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.ID = (int)accesoDatos.Lector["Id"];
+                    aux.Codigo = (string)accesoDatos.Lector["Codigo"];
+                    aux.Nombre = (string)accesoDatos.Lector["Nombre"];
+                    aux.Descripcion = (string)accesoDatos.Lector["Descripcion"];
+                    aux.Marca = new Marca();
+                    aux.Marca.Descripcion = (string)accesoDatos.Lector["Marca"];
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.Descripcion = (string)accesoDatos.Lector["Categoria"];
+                    aux.Precio = (decimal)accesoDatos.Lector["Precio"];
+                    
+
+                    listaArt.Add(aux);
 
 
+                }
+
+                return listaArt;
             }
-
-            accesoDatos.cerrarConexion();
-            return lart;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
         }
 
         public void agregar(Articulo nuevoArticulo)

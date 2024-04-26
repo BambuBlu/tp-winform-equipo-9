@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using tpWinformGroup9.Modelo;
 using tpWinformGroup9.Negocio;
-using System.IO;
-using System.Configuration;
 
 
 namespace tpWinformGroup9
