@@ -10,41 +10,83 @@ namespace tpWinformGroup9.Negocio
     {
         public List<Articulo> listar()
         {
-            List<Articulo> listaArt = new List<Articulo>();
-            AccesoDatos accesoDatos = new AccesoDatos();
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
             try
             {
-                accesoDatos.setConsulta("SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, A.Precio FROM ARTICULOS A, MARCAS M, CATEGORIAS C WHERE A.IdMarca = M.Id AND A.IdCategoria = C.Id");
-                accesoDatos.ejecutarLectura();
+                datos.setConsulta("SELECT a.Id, a.Codigo, a.Nombre, a.Descripcion, a.IdMarca as marca, a.IdCategoria as categoria, a.Precio,m.Descripcion as mdescripcion,i.ImagenUrl as link,c.Descripcion as cdescripcion FROM ARTICULOS a LEFT JOIN MARCAS m ON m.Id = a.IdMarca LEFT JOIN IMAGENES i ON i.IdArticulo = a.Id LEFT JOIN CATEGORIAS c ON c.Id = a.IdCategoria");
+                datos.ejecutarLectura();
 
-                while (accesoDatos.Lector.Read())
+                while (datos.Lector.Read())
                 {
-                    Articulo aux = new Articulo();
-                    aux.ID = (int)accesoDatos.Lector["Id"];
-                    aux.Codigo = (string)accesoDatos.Lector["Codigo"];
-                    aux.Nombre = (string)accesoDatos.Lector["Nombre"];
-                    aux.Descripcion = (string)accesoDatos.Lector["Descripcion"];
-                    aux.Marca = new Marca();
-                    aux.Marca.Descripcion = (string)accesoDatos.Lector["Marca"];
-                    aux.Categoria = new Categoria();
-                    aux.Categoria.Descripcion = (string)accesoDatos.Lector["Categoria"];
-                    aux.Precio = (decimal)accesoDatos.Lector["Precio"];
-                    
+                    Articulo objetoArticulo = new Articulo();
 
-                    listaArt.Add(aux);
+                    objetoArticulo.ID = (int)datos.Lector["Id"];
+
+                    if (!(datos.Lector["Codigo"] is DBNull))
+                    {
+                        objetoArticulo.Codigo = (string)datos.Lector["Codigo"];
+                    }
+                    if (!(datos.Lector["Nombre"] is DBNull))
+                    {
+                        objetoArticulo.Nombre = (string)datos.Lector["Nombre"];
+                    }
+                    if (!(datos.Lector["Descripcion"] is DBNull))
+                    {
+                        objetoArticulo.Descripcion = (string)datos.Lector["Descripcion"];
+                    }
+
+                    objetoArticulo.Marca = new Marca();
+                    if (!(datos.Lector["marca"] is DBNull))
+                    {
+                        objetoArticulo.Marca.Id = (int)datos.Lector["marca"];
+                        objetoArticulo.Marca.Descripcion = (string)datos.Lector["mdescripcion"];
+                    }
+
+                    objetoArticulo.Categoria = new Categoria();
+                    if (!(datos.Lector["categoria"] is DBNull))
+                    {
+                        objetoArticulo.Categoria.Id = (int)datos.Lector["categoria"];
+                    }
+                    if (!(datos.Lector["cdescripcion"] is DBNull))
+                    {
+                        objetoArticulo.Categoria.Descripcion = (string)datos.Lector["cdescripcion"];
+                    }
+                    else
+                    {
+                        objetoArticulo.Categoria.Descripcion = "-";
+                    }
+
+                    if (!(datos.Lector["Precio"] is DBNull))
+                        objetoArticulo.Precio = (decimal)datos.Lector["Precio"];
 
 
+                    objetoArticulo.Imagenes = new List<String>();
+
+                    objetoArticulo.Imagen = new Imagen();
+
+                    if (!(datos.Lector["link"] is DBNull)) //Aca estaba fallando la asignacion ///Borrar comentario en sig commit
+                    {
+                        objetoArticulo.Imagen.ImagenUrl = (string)datos.Lector["link"];
+                        objetoArticulo.Imagenes.Add((string)datos.Lector["link"]);
+                    }
+                    else
+                    {
+                        objetoArticulo.Imagenes.Add("Sin imagen");
+                    }
+
+                    lista.Add(objetoArticulo);
                 }
-
-                return listaArt;
+                return lista;
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
                 throw ex;
             }
             finally
             {
-                accesoDatos.cerrarConexion();
+                datos.cerrarConexion();
             }
         }
 
