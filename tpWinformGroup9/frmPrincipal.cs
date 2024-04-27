@@ -9,7 +9,7 @@ namespace tpWinformGroup9
 {
     public partial class frmPrincipal : Form
     {
-        private List<Articulo> listaarticulos;
+        private List<Articulo> listaArticulos;
         private List<Imagen> listaImagen;
         
         
@@ -35,14 +35,12 @@ namespace tpWinformGroup9
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             MarcaNegocio marcaNegocio = new MarcaNegocio();
-            ImagenNegocio imagenNegocio = new ImagenNegocio();
-            listaImagen = imagenNegocio.listar();
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
-            listaarticulos = articuloNegocio.listar();
-            dgvArticulos.DataSource = listaarticulos;
+            cargar_Componentes();
+
+            dgvArticulos.DataSource = listaArticulos;
             dgvArticulos.Columns["Imagen"].Visible = false;
             dgvArticulos.Columns["Id_a_incrementar"].Visible = false;
             brandComboBox.DataSource = marcaNegocio.listar();
@@ -51,11 +49,116 @@ namespace tpWinformGroup9
             categoryComboBox.DataSource = categoriaNegocio.listar();
             categoryComboBox.ValueMember = "Id";
             categoryComboBox.DisplayMember = "Descripcion";
-            cargarImagen(listaImagen[0].ImagenUrl);
-                    
+
+            /*ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
+            listaImagen = imagenNegocio.listar();
+
+            listaArticulos = articuloNegocio.listar();
+            dgvArticulos.DataSource = listaArticulos;
+            dgvArticulos.Columns["Imagen"].Visible = false;
+            dgvArticulos.Columns["Id_a_incrementar"].Visible = false;
+            brandComboBox.DataSource = marcaNegocio.listar();
+            brandComboBox.ValueMember = "Id";
+            brandComboBox.DisplayMember = "Descripcion";
+            categoryComboBox.DataSource = categoriaNegocio.listar();
+            categoryComboBox.ValueMember = "Id";
+            categoryComboBox.DisplayMember = "Descripcion";
+            cargarImagen(listaImagen[0].ImagenUrl);*/
+
         }
 
-      
+        private void cargar_Componentes()
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                listaArticulos = negocio.listar();
+
+                agruparImagenes(listaArticulos);
+
+                eliminarRepetidos(listaArticulos);
+
+                dgvArticulos.DataSource = listaArticulos;
+
+                cargarImagen(listaImagen[0].ImagenUrl);
+
+                ocultarColumnas();
+
+                dgvArticulos.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                throw;
+            }
+        }
+
+        private void agruparImagenes(List<Articulo> lista)
+        {
+            List<Articulo> repetidos = new List<Articulo>();
+            repetidos = getRepetidos(lista);
+            foreach (Articulo articulo in lista)
+            {
+                foreach (Articulo repetido in repetidos)
+                {
+                    if (repetido.ID == articulo.ID)
+                    {
+                        articulo.Imagenes.Add(repetido.Imagenes[0]);
+                    }
+                }
+            }
+        }
+
+        private List<Articulo> getRepetidos(List<Articulo> lista)
+        {
+            HashSet<int> ids_revisados = new HashSet<int>();
+
+            List<Articulo> repetidos = new List<Articulo>();
+
+            foreach (Articulo articulo_actual in lista)
+            {
+                if (!ids_revisados.Add(articulo_actual.ID))
+                {
+                    repetidos.Add(articulo_actual);
+                }
+            }
+            return repetidos;
+        }
+
+        private void eliminarRepetidos(List<Articulo> lista)
+        {
+            List<Articulo> repetidos = new List<Articulo>();
+            repetidos = getRepetidos(lista);
+            foreach (Articulo repetido in repetidos)
+            {
+                lista.Remove(repetido);
+            }
+        }
+
+
+        private void ocultarColumnas()
+        {
+            dgvArticulos.Columns["IMAGEN"].Visible = false;
+            dgvArticulos.Columns["id_a_incrementar"].Visible = false;
+            return;
+        }
+
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                articleImage.Load(imagen);
+            }
+            catch (Exception)
+            {
+                articleImage.Load("https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-network-placeholder-png-image_3416659.jpg");
+
+
+            }
+        }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
@@ -73,21 +176,6 @@ namespace tpWinformGroup9
             else { }
         }
 
-        private void cargarImagen (string imagen)
-        {
-            try
-            {
-                articleImage.Load(imagen);
-            }
-            catch (Exception ex)
-            {
-                articleImage.Load("https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-network-placeholder-png-image_3416659.jpg");
-
-
-            }
-            
-
-        }
 
         private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
