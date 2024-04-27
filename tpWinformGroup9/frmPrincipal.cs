@@ -54,24 +54,6 @@ namespace tpWinformGroup9
             categoryComboBox.ValueMember = "Id";
             categoryComboBox.DisplayMember = "Descripcion";
 
-            /*ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-            MarcaNegocio marcaNegocio = new MarcaNegocio();
-            ImagenNegocio imagenNegocio = new ImagenNegocio();
-            listaImagen = imagenNegocio.listar();
-
-            listaArticulos = articuloNegocio.listar();
-            dgvArticulos.DataSource = listaArticulos;
-            dgvArticulos.Columns["Imagen"].Visible = false;
-            dgvArticulos.Columns["Id_a_incrementar"].Visible = false;
-            brandComboBox.DataSource = marcaNegocio.listar();
-            brandComboBox.ValueMember = "Id";
-            brandComboBox.DisplayMember = "Descripcion";
-            categoryComboBox.DataSource = categoriaNegocio.listar();
-            categoryComboBox.ValueMember = "Id";
-            categoryComboBox.DisplayMember = "Descripcion";
-            cargarImagen(listaImagen[0].ImagenUrl);*/
-
         }
 
         private void cargar_Componentes()
@@ -188,27 +170,29 @@ namespace tpWinformGroup9
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-
+            eliminar();
         }
 
+        private void eliminar()
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado;
 
+            try
+            {
+                DialogResult respuesta = MessageBox.Show("¿Desea eliminar el articulo?", "Eliminado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(respuesta == DialogResult.Yes)
+                {
+                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    negocio.Eliminar(seleccionado.ID);
+                }
+                cargar_Componentes();
+            }
+            catch (Exception ex)
+            {
 
-
-        /* private void listaArticulos_SelectionChangeCommitted(object sender, EventArgs e)
-         {
-             ArticuloNegocio negocio = new ArticuloNegocio();
-             List<Articulo> listaArt = negocio.listar(); //se abstrajo el listado de articulos para que actue como una funcion de llamado, quiza habria que modificarla
-             List<Articulo> selecArt = new List<Articulo>();
-
-             foreach (var articulo in listaArt)
-             {
-                 if (articulo.Nombre == dgvArticulos.SelectedColumns.ToString())
-                 {
-                     selecArt.Add(articulo);
-                     dgvArticulos.DataSource = selecArt.FirstOrDefault();
-                 }
-
-             }
-         }No termino de entender que hace esto*/
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
