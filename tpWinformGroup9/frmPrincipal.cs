@@ -43,14 +43,16 @@ namespace tpWinformGroup9
 
             listaarticulos = articuloNegocio.listar();
             dgvArticulos.DataSource = listaarticulos;
+            dgvArticulos.Columns["Imagen"].Visible = false;
+            dgvArticulos.Columns["Id_a_incrementar"].Visible = false;
             brandComboBox.DataSource = marcaNegocio.listar();
             brandComboBox.ValueMember = "Id";
             brandComboBox.DisplayMember = "Descripcion";
             categoryComboBox.DataSource = categoriaNegocio.listar();
             categoryComboBox.ValueMember = "Id";
             categoryComboBox.DisplayMember = "Descripcion";
-            articleImage.Load(listaImagen[4].ImagenUrl);
-          
+            cargarImagen(listaImagen[0].ImagenUrl);
+                    
         }
 
       
@@ -65,12 +67,33 @@ namespace tpWinformGroup9
 
             if (imagenSeleccion != null)
             {
-                articleImage.Load(imagenSeleccion.ImagenUrl);
+                cargarImagen(imagenSeleccion.ImagenUrl);
 
             }
             else { }
         }
-        
+
+        private void cargarImagen (string imagen)
+        {
+            try
+            {
+                articleImage.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                articleImage.Load("https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-network-placeholder-png-image_3416659.jpg");
+
+
+            }
+            
+
+        }
+
+        private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
 
 
 
