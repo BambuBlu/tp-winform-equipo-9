@@ -22,6 +22,8 @@ namespace tpWinformGroup9
         {
             frmAddModify addWindow = new frmAddModify();
             addWindow.ShowDialog();
+
+            cargar_Componentes();
         }
 
         private void modifyButton_Click(object sender, EventArgs e)
@@ -31,6 +33,8 @@ namespace tpWinformGroup9
 
             frmAddModify addWindow = new frmAddModify(articuloSeleccionado); //Se le manda el articulo seleccionado para poder modificarlo
             addWindow.ShowDialog();
+
+            cargar_Componentes();
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
@@ -178,6 +182,11 @@ namespace tpWinformGroup9
 
 
         private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
         {
 
         }

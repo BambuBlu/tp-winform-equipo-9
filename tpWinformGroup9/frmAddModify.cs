@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using tpWinformGroup9.Modelo;
 using tpWinformGroup9.Negocio;
@@ -15,12 +16,14 @@ namespace tpWinformGroup9
         public frmAddModify()
         {
             InitializeComponent();
+            Text = "Agregar Articulo";
         }
 
         public frmAddModify(Articulo articulo) //segundo constructor para el filtrado al momento de modificar un articulo
         {
             InitializeComponent();
             this.articulo = articulo;
+            Text = "Modificar Articulo";
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -60,8 +63,8 @@ namespace tpWinformGroup9
                     else
                         camposIncompletos = true;
 
-                articulo.Categoria = (Categoria)categoriaComboBx.SelectedItem; //falta codigo para agregar un listado
-                articulo.Marca = (Marca)marcaComboBx.SelectedItem; //falta codigo para agregar un listado
+                articulo.Categoria = (Categoria)categoriaComboBx.SelectedItem;
+                articulo.Marca = (Marca)marcaComboBx.SelectedItem;
 
                 if (precioTextBox.Text != null)
                     articulo.Precio = decimal.Parse(precioTextBox.Text);
@@ -84,34 +87,22 @@ namespace tpWinformGroup9
                     codigoTextBox.Focus();
                 }
 
-                // codigo dejado para posible agregado, REVISAR
-                /*else
+                else
                 {
                     if (articulo.ID != 0)
                     {
-                        negocio.Modificar(articulo);
+                        negocio.modificar(articulo);
                         MessageBox.Show("Modificado correctamente");
                     }
                     else
                     {
                         negocio.agregar(articulo);
                         MessageBox.Show("Articulo añadido correctamente!");
-                    }*/
-
-                else
-                {
-                    negocio.agregar(articulo);
-                    MessageBox.Show("Articulo añadido correctamente!");
-                }
-                /*
-                    //distingue si las guarda en la base de datos o localmente
-                    if (archivo != null && !(textBox3.Text.ToUpper().Contains("HTTP")))
-                    {
-                        copiarImagenLocalmente();
                     }
-                */
-                Close();
 
+                    Close();
+
+                }
             }
             catch (FormatException)
             {
@@ -122,21 +113,54 @@ namespace tpWinformGroup9
 
         private void frmAddModify_Load(object sender, EventArgs e)
         {
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            try
+            {
+                marcaComboBx.DataSource = marcaNegocio.listar();
+                marcaComboBx.ValueMember = "Id";
+                marcaComboBx.DisplayMember = "Descripcion";
+                categoriaComboBx.DataSource = categoriaNegocio.listar();
+                categoriaComboBx.ValueMember = "Id";
+                categoriaComboBx.DisplayMember = "Descripcion";
+                articleImage.Load("https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-network-placeholder-png-image_3416659.jpg");
 
+                if (articulo != null)
+                {
+                    codigoTextBox.Text = articulo.Codigo;
+                    textBox1.Text = articulo.Nombre;
+                    precioTextBox.Text = articulo.Precio.ToString();
+                    marcaComboBx.SelectedValue = articulo.Marca.Id;
+                    categoriaComboBx.SelectedValue = articulo.Categoria.Id;
+                    textBox3.Text = articulo.Imagenes.First();
+                    textBox2.Text = articulo.Descripcion;
+                    cargarImagen(textBox3.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
         }
 
-        /*private void copiarImagenLocalmente()
+        private void textBox3_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(textBox3.Text);
+        }
+
+        private void cargarImagen(string imagen)
         {
             try
             {
-                //copia la imagen a una carpeta local
-                File.Copy(archivo.FileName, ConfigurationManager.AppSettings["Imagenes-app"] + archivo.SafeFileName);
+                articleImage.Load(imagen);
             }
-            catch (System.IO.IOException)
+            catch (Exception)
             {
-                MessageBox.Show("Ya hay un archivo con la misma imagen, elija otra por favor :)");
-                throw;
+                articleImage.Load("https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-network-placeholder-png-image_3416659.jpg");
+
+
             }
-        }*/
+        }
     }
 }

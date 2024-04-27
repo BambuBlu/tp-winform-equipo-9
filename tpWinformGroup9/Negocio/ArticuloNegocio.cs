@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 using tpWinformGroup9.Modelo;
 
 namespace tpWinformGroup9.Negocio
@@ -62,8 +63,7 @@ namespace tpWinformGroup9.Negocio
 
             try
             {
-                datos.setConsulta("INSERT INTO ARTICULOS ( CODIGO, NOMBRE, IDMARCA, IDCATEGORIA, Precio, DESCRIPCION) VALUES (@Codigo, @Nombre, @Marca, @Categoria, @Precio, @Descripcion)");
-                // INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@IdArticulo, @ImagenUrl)"); ///Dejo este codigo para cuando se agregen las urls
+                datos.setConsulta("INSERT INTO ARTICULOS ( CODIGO, NOMBRE, IDMARCA, IDCATEGORIA, Precio, DESCRIPCION) VALUES (@Codigo, @Nombre, @Marca, @Categoria, @Precio, @Descripcion) INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@IdArticulo, @ImagenUrl)");
                 datos.setParametro("@Codigo", nuevoArticulo.Codigo);
                 datos.setParametro("@Nombre", nuevoArticulo.Nombre);
                 datos.setParametro("@Marca", nuevoArticulo.Marca.Id);
@@ -72,17 +72,17 @@ namespace tpWinformGroup9.Negocio
                 datos.setParametro("@Descripcion", nuevoArticulo.Descripcion);
 
 
-                ///agregado de la url de imagenes y su conexion a las id's
-                /*if (nuevo_articulo.Imagenes.Count > 0)
+
+                if (nuevoArticulo.Imagenes.Count > 0)
                 {
-                    datos.setParametro("@IdArticulo", nuevo_articulo.id_a_incrementar);
-                    datos.setParametro("@ImagenUrl", nuevo_articulo.Imagenes[0]);
+                    datos.setParametro("@IdArticulo", nuevoArticulo.id_a_incrementar);
+                    datos.setParametro("@ImagenUrl", nuevoArticulo.Imagenes[0]);
                 }
                 else
                 {
-                    datos.setParametro("@IdArticulo", nuevo_articulo.id_a_incrementar);
+                    datos.setParametro("@IdArticulo", nuevoArticulo.id_a_incrementar);
                     datos.setParametro("@ImagenUrl", "Sin imagen");
-                }*/
+                }
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -94,6 +94,35 @@ namespace tpWinformGroup9.Negocio
             {
                 datos.cerrarConexion();
             }
+        }
+
+        public void modificar(Articulo articulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setConsulta("UPDATE ARTICULOS set Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion,idMarca = @marca,idCategoria = @categoria ,Precio = @precio where id = @id UPDATE IMAGENES SET ImagenUrl = '" + articulo.Imagen.ImagenUrl + "' where IdArticulo = @id");
+                datos.setParametro("@id", articulo.ID);
+                datos.setParametro("@codigo", articulo.Codigo);
+                datos.setParametro("@nombre", articulo.Nombre);
+                datos.setParametro("@descripcion", articulo.Descripcion);
+                datos.setParametro("@precio", articulo.Precio);
+                datos.setParametro("@marca", articulo.Marca.Id);
+                datos.setParametro("@categoria", articulo.Categoria.Id);
+
+                datos.ejecutarLectura();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
         }
     }
    

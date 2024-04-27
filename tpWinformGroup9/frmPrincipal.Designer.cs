@@ -213,6 +213,7 @@
             this.deleteButton.TabIndex = 11;
             this.deleteButton.Text = "Borrar";
             this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // frmPrincipal
             // 

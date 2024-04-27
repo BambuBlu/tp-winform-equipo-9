@@ -56,6 +56,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
             this.continueButton = new System.Windows.Forms.Button();
+            this.articleImage = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -64,6 +65,7 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.articleImage)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -257,27 +259,29 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.panel7.Controls.Add(this.articleImage);
             this.panel7.Controls.Add(this.textBox2);
             this.panel7.Controls.Add(this.label6);
-            this.panel7.Location = new System.Drawing.Point(12, 272);
+            this.panel7.Location = new System.Drawing.Point(12, 324);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(427, 39);
+            this.panel7.Size = new System.Drawing.Size(427, 210);
             this.panel7.TabIndex = 6;
             // 
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
-            this.textBox2.Location = new System.Drawing.Point(110, 9);
+            this.textBox2.Location = new System.Drawing.Point(219, 27);
+            this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(285, 20);
+            this.textBox2.Size = new System.Drawing.Size(199, 170);
             this.textBox2.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(16, 12);
+            this.label6.Location = new System.Drawing.Point(279, 9);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 15);
             this.label6.TabIndex = 0;
@@ -288,7 +292,7 @@
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
             this.panel8.Controls.Add(this.textBox3);
             this.panel8.Controls.Add(this.label7);
-            this.panel8.Location = new System.Drawing.Point(12, 324);
+            this.panel8.Location = new System.Drawing.Point(12, 272);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(427, 39);
@@ -301,6 +305,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(285, 20);
             this.textBox3.TabIndex = 1;
+            this.textBox3.Leave += new System.EventHandler(this.textBox3_Leave);
             // 
             // label7
             // 
@@ -322,8 +327,8 @@
             this.backButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(108)))), ((int)(((byte)(85)))));
             this.backButton.Image = ((System.Drawing.Image)(resources.GetObject("backButton.Image")));
             this.backButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.backButton.Location = new System.Drawing.Point(30, 393);
-            this.backButton.Margin = new System.Windows.Forms.Padding(40, 3, 20, 3);
+            this.backButton.Location = new System.Drawing.Point(29, 557);
+            this.backButton.Margin = new System.Windows.Forms.Padding(20, 3, 20, 3);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(122, 33);
             this.backButton.TabIndex = 12;
@@ -341,7 +346,7 @@
             this.continueButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
             this.continueButton.Image = ((System.Drawing.Image)(resources.GetObject("continueButton.Image")));
             this.continueButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.continueButton.Location = new System.Drawing.Point(300, 393);
+            this.continueButton.Location = new System.Drawing.Point(308, 556);
             this.continueButton.Margin = new System.Windows.Forms.Padding(20, 3, 20, 3);
             this.continueButton.Name = "continueButton";
             this.continueButton.Size = new System.Drawing.Size(122, 33);
@@ -350,12 +355,24 @@
             this.continueButton.UseVisualStyleBackColor = false;
             this.continueButton.Click += new System.EventHandler(this.continueButton_Click);
             // 
+            // articleImage
+            // 
+            this.articleImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.articleImage.ErrorImage = ((System.Drawing.Image)(resources.GetObject("articleImage.ErrorImage")));
+            this.articleImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("articleImage.InitialImage")));
+            this.articleImage.Location = new System.Drawing.Point(3, 3);
+            this.articleImage.Name = "articleImage";
+            this.articleImage.Size = new System.Drawing.Size(210, 204);
+            this.articleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.articleImage.TabIndex = 15;
+            this.articleImage.TabStop = false;
+            // 
             // frmAddModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(221)))), ((int)(((byte)(229)))));
-            this.ClientSize = new System.Drawing.Size(459, 446);
+            this.ClientSize = new System.Drawing.Size(451, 608);
             this.Controls.Add(this.continueButton);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.panel8);
@@ -385,6 +402,7 @@
             this.panel7.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.articleImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -418,5 +436,6 @@
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.ComboBox marcaComboBx;
         private System.Windows.Forms.ComboBox categoriaComboBx;
+        private System.Windows.Forms.PictureBox articleImage;
     }
 }
