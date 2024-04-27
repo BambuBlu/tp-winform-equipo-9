@@ -120,6 +120,11 @@ namespace tpWinformGroup9
             }
         }
 
+        private void frmAddModify_Load(object sender, EventArgs e)
+        {
+
+        }
+
         /*private void copiarImagenLocalmente()
         {
             try

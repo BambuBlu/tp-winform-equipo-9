@@ -198,7 +198,7 @@
             // 
             this.lblError.AutoSize = true;
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(226, 26);
+            this.lblError.Location = new System.Drawing.Point(216, 16);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(46, 13);
             this.lblError.TabIndex = 14;
@@ -368,6 +368,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmAddModify";
             this.Text = "Agregar o Modificar";
+            this.Load += new System.EventHandler(this.frmAddModify_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

@@ -9,7 +9,10 @@ namespace tpWinformGroup9
 {
     public partial class frmPrincipal : Form
     {
-
+        private List<Articulo> listaarticulos;
+        private List<Imagen> listaImagen;
+        
+        
         public frmPrincipal()
         {
             InitializeComponent();
@@ -35,50 +38,57 @@ namespace tpWinformGroup9
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             MarcaNegocio marcaNegocio = new MarcaNegocio();
-            listaArticulos.DataSource = articuloNegocio.listar();
-            listaArticulos.ValueMember = "Id";
-            listaArticulos.DisplayMember = "Nombre";
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
+            listaImagen = imagenNegocio.listar();
+
+            listaarticulos = articuloNegocio.listar();
+            dgvArticulos.DataSource = listaarticulos;
             brandComboBox.DataSource = marcaNegocio.listar();
             brandComboBox.ValueMember = "Id";
             brandComboBox.DisplayMember = "Descripcion";
             categoryComboBox.DataSource = categoriaNegocio.listar();
             categoryComboBox.ValueMember = "Id";
             categoryComboBox.DisplayMember = "Descripcion";
+            articleImage.Load(listaImagen[4].ImagenUrl);
+          
         }
 
-        private void listaArticulos_SelectedIndexChanged(object sender, EventArgs e)
+      
+
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
-            //List<Articulo> articuloSeleccionado = new List<Articulo>();
-            //for (int i = 0; i < lart.Count; i++)
-            //{
 
-            //    if (seleccion == lart[i].Nombre)
-            //    { 
-            //        articuloSeleccionado.Add(lart[i]);
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
+            listaImagen = imagenNegocio.listar();
+            Articulo seleccion = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            Imagen imagenSeleccion = listaImagen.Find(imagen => imagen.IdArticulo == seleccion.ID);
 
-            //    }
-
-            //}
-
-
-
-        }
-
-        private void listaArticulos_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            List<Articulo> listaArt = negocio.listar(); //se abstrajo el listado de articulos para que actue como una funcion de llamado, quiza habria que modificarla
-            List<Articulo> selecArt = new List<Articulo>();
-
-            foreach (var articulo in listaArt)
+            if (imagenSeleccion != null)
             {
-                if (articulo.Nombre == listaArticulos.SelectedItem.ToString())
-                {
-                    selecArt.Add(articulo);
-                    dgvArticulos.DataSource = selecArt.FirstOrDefault();
-                }
+                articleImage.Load(imagenSeleccion.ImagenUrl);
 
             }
+            else { }
         }
+        
+
+
+
+        /* private void listaArticulos_SelectionChangeCommitted(object sender, EventArgs e)
+         {
+             ArticuloNegocio negocio = new ArticuloNegocio();
+             List<Articulo> listaArt = negocio.listar(); //se abstrajo el listado de articulos para que actue como una funcion de llamado, quiza habria que modificarla
+             List<Articulo> selecArt = new List<Articulo>();
+
+             foreach (var articulo in listaArt)
+             {
+                 if (articulo.Nombre == dgvArticulos.SelectedColumns.ToString())
+                 {
+                     selecArt.Add(articulo);
+                     dgvArticulos.DataSource = selecArt.FirstOrDefault();
+                 }
+
+             }
+         }No termino de entender que hace esto*/
     }
 }
