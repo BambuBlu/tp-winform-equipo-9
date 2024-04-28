@@ -31,27 +31,25 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.addButton = new System.Windows.Forms.Button();
             this.containerPanel1 = new System.Windows.Forms.Panel();
+            this.buttonBuscarFiltro = new System.Windows.Forms.Button();
+            this.textBoxFiltro = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.criterioComboBox = new System.Windows.Forms.ComboBox();
             this.campoComboBox = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.containerPanel2 = new System.Windows.Forms.Panel();
+            this.siguienteImgButton = new System.Windows.Forms.PictureBox();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.articleImage = new System.Windows.Forms.PictureBox();
             this.modifyButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxFiltro = new System.Windows.Forms.TextBox();
-            this.buttonBuscarFiltro = new System.Windows.Forms.Button();
-            this.siguienteImgButton = new System.Windows.Forms.PictureBox();
-            this.anteriorImgButton = new System.Windows.Forms.PictureBox();
             this.containerPanel1.SuspendLayout();
             this.containerPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.siguienteImgButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.articleImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.siguienteImgButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.anteriorImgButton)).BeginInit();
             this.SuspendLayout();
             // 
             // addButton
@@ -92,6 +90,45 @@
             this.containerPanel1.Size = new System.Drawing.Size(1218, 105);
             this.containerPanel1.TabIndex = 7;
             // 
+            // buttonBuscarFiltro
+            // 
+            this.buttonBuscarFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.buttonBuscarFiltro.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
+            this.buttonBuscarFiltro.FlatAppearance.BorderSize = 2;
+            this.buttonBuscarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBuscarFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.buttonBuscarFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
+            this.buttonBuscarFiltro.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarFiltro.Image")));
+            this.buttonBuscarFiltro.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonBuscarFiltro.Location = new System.Drawing.Point(1076, 44);
+            this.buttonBuscarFiltro.Margin = new System.Windows.Forms.Padding(20, 3, 20, 3);
+            this.buttonBuscarFiltro.Name = "buttonBuscarFiltro";
+            this.buttonBuscarFiltro.Size = new System.Drawing.Size(122, 33);
+            this.buttonBuscarFiltro.TabIndex = 11;
+            this.buttonBuscarFiltro.Text = "Buscar";
+            this.buttonBuscarFiltro.UseVisualStyleBackColor = false;
+            this.buttonBuscarFiltro.Click += new System.EventHandler(this.buttonBuscarFiltro_Click);
+            // 
+            // textBoxFiltro
+            // 
+            this.textBoxFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.textBoxFiltro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxFiltro.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.textBoxFiltro.Location = new System.Drawing.Point(702, 53);
+            this.textBoxFiltro.Name = "textBoxFiltro";
+            this.textBoxFiltro.Size = new System.Drawing.Size(338, 20);
+            this.textBoxFiltro.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(711, 34);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(104, 15);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Ingrese el filtro";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -101,6 +138,16 @@
             this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "Criterio";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(17, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(274, 31);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Filtros de Busqueda";
             // 
             // label3
             // 
@@ -134,20 +181,9 @@
             this.campoComboBox.TabIndex = 1;
             this.campoComboBox.SelectedIndexChanged += new System.EventHandler(this.CbxCampo_SelectedIndexChanged);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(274, 31);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Filtros de Busqueda";
-            // 
             // containerPanel2
             // 
             this.containerPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.containerPanel2.Controls.Add(this.anteriorImgButton);
             this.containerPanel2.Controls.Add(this.siguienteImgButton);
             this.containerPanel2.Controls.Add(this.dgvArticulos);
             this.containerPanel2.Controls.Add(this.articleImage);
@@ -155,6 +191,19 @@
             this.containerPanel2.Name = "containerPanel2";
             this.containerPanel2.Size = new System.Drawing.Size(1218, 309);
             this.containerPanel2.TabIndex = 9;
+            // 
+            // siguienteImgButton
+            // 
+            this.siguienteImgButton.BackColor = System.Drawing.Color.Transparent;
+            this.siguienteImgButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("siguienteImgButton.BackgroundImage")));
+            this.siguienteImgButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.siguienteImgButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.siguienteImgButton.Location = new System.Drawing.Point(264, 265);
+            this.siguienteImgButton.Name = "siguienteImgButton";
+            this.siguienteImgButton.Size = new System.Drawing.Size(27, 28);
+            this.siguienteImgButton.TabIndex = 12;
+            this.siguienteImgButton.TabStop = false;
+            this.siguienteImgButton.Click += new System.EventHandler(this.siguienteImgButton_Click);
             // 
             // dgvArticulos
             // 
@@ -222,69 +271,6 @@
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(711, 34);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 15);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Ingrese el filtro";
-            // 
-            // textBoxFiltro
-            // 
-            this.textBoxFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
-            this.textBoxFiltro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxFiltro.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.textBoxFiltro.Location = new System.Drawing.Point(702, 53);
-            this.textBoxFiltro.Name = "textBoxFiltro";
-            this.textBoxFiltro.Size = new System.Drawing.Size(338, 20);
-            this.textBoxFiltro.TabIndex = 6;
-            // 
-            // buttonBuscarFiltro
-            // 
-            this.buttonBuscarFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.buttonBuscarFiltro.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
-            this.buttonBuscarFiltro.FlatAppearance.BorderSize = 2;
-            this.buttonBuscarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBuscarFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.buttonBuscarFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
-            this.buttonBuscarFiltro.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarFiltro.Image")));
-            this.buttonBuscarFiltro.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonBuscarFiltro.Location = new System.Drawing.Point(1076, 44);
-            this.buttonBuscarFiltro.Margin = new System.Windows.Forms.Padding(20, 3, 20, 3);
-            this.buttonBuscarFiltro.Name = "buttonBuscarFiltro";
-            this.buttonBuscarFiltro.Size = new System.Drawing.Size(122, 33);
-            this.buttonBuscarFiltro.TabIndex = 11;
-            this.buttonBuscarFiltro.Text = "Buscar";
-            this.buttonBuscarFiltro.UseVisualStyleBackColor = false;
-            this.buttonBuscarFiltro.Click += new System.EventHandler(this.buttonBuscarFiltro_Click);
-            // 
-            // siguienteImgButton
-            // 
-            this.siguienteImgButton.BackColor = System.Drawing.Color.Transparent;
-            this.siguienteImgButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("siguienteImgButton.BackgroundImage")));
-            this.siguienteImgButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.siguienteImgButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.siguienteImgButton.Location = new System.Drawing.Point(264, 265);
-            this.siguienteImgButton.Name = "siguienteImgButton";
-            this.siguienteImgButton.Size = new System.Drawing.Size(27, 28);
-            this.siguienteImgButton.TabIndex = 12;
-            this.siguienteImgButton.TabStop = false;
-            // 
-            // anteriorImgButton
-            // 
-            this.anteriorImgButton.BackColor = System.Drawing.Color.Transparent;
-            this.anteriorImgButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("anteriorImgButton.BackgroundImage")));
-            this.anteriorImgButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.anteriorImgButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.anteriorImgButton.Location = new System.Drawing.Point(23, 265);
-            this.anteriorImgButton.Name = "anteriorImgButton";
-            this.anteriorImgButton.Size = new System.Drawing.Size(27, 28);
-            this.anteriorImgButton.TabIndex = 13;
-            this.anteriorImgButton.TabStop = false;
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,10 +288,9 @@
             this.containerPanel1.ResumeLayout(false);
             this.containerPanel1.PerformLayout();
             this.containerPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.siguienteImgButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.articleImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.siguienteImgButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.anteriorImgButton)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -327,7 +312,6 @@
         private System.Windows.Forms.TextBox textBoxFiltro;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button buttonBuscarFiltro;
-        private System.Windows.Forms.PictureBox anteriorImgButton;
         private System.Windows.Forms.PictureBox siguienteImgButton;
     }
 }
