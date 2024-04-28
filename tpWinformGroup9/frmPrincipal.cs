@@ -233,7 +233,7 @@ namespace tpWinformGroup9
                 if (dgvArticulos.CurrentRow == null)
                 {
                     siguienteImgButton.Enabled = false;
-                    anteriorImgButton.Enabled = false;
+                   
                     modifyButton.Enabled = false;
                     deleteButton.Enabled = false;
                 }
