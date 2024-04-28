@@ -194,5 +194,21 @@ namespace tpWinformGroup9
                 MessageBox.Show(ex.ToString());
             }
         }
+        private int indiceActual = 0;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
+            listaImagen = imagenNegocio.listar();
+            Articulo seleccion = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            List<Imagen> imagenSeleccion = listaImagen.Where(imagen => imagen.IdArticulo == seleccion.ID).ToList();        
+            if (imagenSeleccion.Count >0)
+            {
+                indiceActual = (indiceActual + 1) % imagenSeleccion.Count;
+                cargarImagen(imagenSeleccion[indiceActual].ImagenUrl);
+
+            }
+            else { }
+
+        }
     }
 }
