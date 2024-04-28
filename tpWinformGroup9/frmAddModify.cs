@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Windows.Forms;
 using tpWinformGroup9.Modelo;
@@ -161,6 +162,12 @@ namespace tpWinformGroup9
 
 
             }
+        }
+
+        private void precioTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
+                e.Handled = true; 
         }
     }
 }

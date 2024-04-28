@@ -39,16 +39,9 @@ namespace tpWinformGroup9
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-
             cargar_Componentes();
-
-            dgvArticulos.DataSource = listaArticulos;
-            dgvArticulos.Columns["Imagen"].Visible = false;
-            dgvArticulos.Columns["Id_a_incrementar"].Visible = false;
-
-            campoComboBox.Items.Add("ID");
-            campoComboBox.Items.Add("Nombre");
-            campoComboBox.Items.Add("Descripcion");
+            CargarDataGrid();
+            CargarCampoCbo();
 
         }
 
@@ -143,6 +136,7 @@ namespace tpWinformGroup9
 
         private void ocultarColumnas()
         {
+            dgvArticulos.RowHeadersVisible = false;
             dgvArticulos.Columns["IMAGEN"].Visible = false;
             dgvArticulos.Columns["id_a_incrementar"].Visible = false;
             return;
@@ -157,8 +151,6 @@ namespace tpWinformGroup9
             catch (Exception)
             {
                 articleImage.Load("https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-network-placeholder-png-image_3416659.jpg");
-
-
             }
         }
 
@@ -175,7 +167,6 @@ namespace tpWinformGroup9
                 cargarImagen(imagenSeleccion.ImagenUrl);
 
             }
-            else { }
         }
 
 
@@ -299,6 +290,27 @@ namespace tpWinformGroup9
 
             }
             else { }
+        }
+
+        private void btnReestablecer_Click(object sender, EventArgs e)
+        {
+            CargarDataGrid();
+
+            CargarCampoCbo();
+        }
+
+        private void CargarCampoCbo()
+        {
+            campoComboBox.Items.Add("ID");
+            campoComboBox.Items.Add("Nombre");
+            campoComboBox.Items.Add("Descripcion");
+        }
+
+        private void CargarDataGrid()
+        {
+            dgvArticulos.DataSource = listaArticulos;
+            dgvArticulos.Columns["Imagen"].Visible = false;
+            dgvArticulos.Columns["Id_a_incrementar"].Visible = false;
         }
     }
 }
