@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Windows.Forms;
 using tpWinformGroup9.Modelo;
@@ -12,6 +11,7 @@ namespace tpWinformGroup9
     public partial class frmAddModify : Form
     {
         private Articulo articulo = null;
+        private List<string> listaAuxImg = new List<string>();
         private OpenFileDialog archivo = null;
 
         public frmAddModify()
@@ -71,16 +71,14 @@ namespace tpWinformGroup9
                     articulo.Precio = decimal.Parse(precioTextBox.Text);
 
                 articulo.Imagen = new Imagen();
-                if (textBox3 != null)
+
+                if (listaAuxImg.Count != 0 )
                 {
-                    if (!string.IsNullOrEmpty(textBox3.Text))
-                    {
-                        articulo.Imagenes.Add(textBox3.Text);
-                        articulo.Imagen.ImagenUrl = textBox3.Text;
-                    }
-                    else
-                        camposIncompletos = true;
+                    articulo.Imagenes.AddRange(listaAuxImg);
+                    articulo.Imagen.ImagenUrl = textBox3.Text;
                 }
+                else
+                    camposIncompletos = true;
 
                 if (camposIncompletos)
                 {
@@ -168,6 +166,18 @@ namespace tpWinformGroup9
         {
             if (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar))
                 e.Handled = true; 
+        }
+
+        private void btnAddImage_Click(object sender, EventArgs e)
+        {
+
+            if (!string.IsNullOrEmpty(textBox3.Text))
+            {
+                if(!listaAuxImg.Contains(textBox3.Text))
+                {
+                    listaAuxImg.Add(textBox3.Text);
+                }
+            }
         }
     }
 }

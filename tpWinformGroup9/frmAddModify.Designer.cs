@@ -57,6 +57,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
             this.continueButton = new System.Windows.Forms.Button();
+            this.btnAddImage = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -320,6 +321,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.panel8.Controls.Add(this.btnAddImage);
             this.panel8.Controls.Add(this.textBox3);
             this.panel8.Controls.Add(this.label7);
             this.panel8.Location = new System.Drawing.Point(24, 523);
@@ -386,6 +388,16 @@
             this.continueButton.Text = "Continuar";
             this.continueButton.UseVisualStyleBackColor = false;
             this.continueButton.Click += new System.EventHandler(this.continueButton_Click);
+            // 
+            // btnAddImage
+            // 
+            this.btnAddImage.Location = new System.Drawing.Point(795, 17);
+            this.btnAddImage.Name = "btnAddImage";
+            this.btnAddImage.Size = new System.Drawing.Size(37, 35);
+            this.btnAddImage.TabIndex = 2;
+            this.btnAddImage.Text = "+";
+            this.btnAddImage.UseVisualStyleBackColor = true;
+            this.btnAddImage.Click += new System.EventHandler(this.btnAddImage_Click);
             // 
             // frmAddModify
             // 
@@ -458,5 +470,6 @@
         private System.Windows.Forms.ComboBox marcaComboBx;
         private System.Windows.Forms.ComboBox categoriaComboBx;
         private System.Windows.Forms.PictureBox articleImage;
+        private System.Windows.Forms.Button btnAddImage;
     }
 }

@@ -61,11 +61,11 @@ namespace tpWinformGroup9.Negocio
                         objetoArticulo.Precio = (decimal)datos.Lector["Precio"];
 
 
-                    objetoArticulo.Imagenes = new List<String>();
+                    objetoArticulo.Imagenes = new List<string>();
 
                     objetoArticulo.Imagen = new Imagen();
 
-                    if (!(datos.Lector["link"] is DBNull)) //Aca estaba fallando la asignacion ///Borrar comentario en sig commit
+                    if (!(datos.Lector["link"] is DBNull))
                     {
                         objetoArticulo.Imagen.ImagenUrl = (string)datos.Lector["link"];
                         objetoArticulo.Imagenes.Add((string)datos.Lector["link"]);
@@ -105,7 +105,7 @@ namespace tpWinformGroup9.Negocio
 
             try
             {
-                datos.setConsulta("INSERT INTO ARTICULOS ( CODIGO, NOMBRE, IDMARCA, IDCATEGORIA, Precio, DESCRIPCION) VALUES (@Codigo, @Nombre, @Marca, @Categoria, @Precio, @Descripcion) INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@IdArticulo, @ImagenUrl)");
+                datos.setConsulta("INSERT INTO ARTICULOS ( CODIGO, NOMBRE, IDMARCA, IDCATEGORIA, Precio, DESCRIPCION) VALUES (@Codigo, @Nombre, @Marca, @Categoria, @Precio, @Descripcion) DECLARE @currentid INT SET @currentid = IDENT_CURRENT('ARTICULOS') INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@currentid, @ImagenUrl)");
                 datos.setParametro("@Codigo", nuevoArticulo.Codigo);
                 datos.setParametro("@Nombre", nuevoArticulo.Nombre);
                 datos.setParametro("@Marca", nuevoArticulo.Marca.Id);
@@ -117,8 +117,7 @@ namespace tpWinformGroup9.Negocio
 
                 if (nuevoArticulo.Imagenes.Count > 0)
                 {
-                    datos.setParametro("@IdArticulo", nuevoArticulo.id_a_incrementar);
-                    datos.setParametro("@ImagenUrl", nuevoArticulo.Imagenes[0]);
+                    datos.setParametro("@ImagenUrl", nuevoArticulo.Imagenes.FirstOrDefault());
                 }
                 else
                 {

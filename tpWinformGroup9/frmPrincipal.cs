@@ -289,7 +289,6 @@ namespace tpWinformGroup9
                 cargarImagen(imagenSeleccion[indiceActual].ImagenUrl);
 
             }
-            else { }
         }
 
         private void btnReestablecer_Click(object sender, EventArgs e)
