@@ -39,20 +39,36 @@ namespace tpWinformGroup9
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            MarcaNegocio marcaNegocio = new MarcaNegocio();
-            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
             cargar_Componentes();
 
             dgvArticulos.DataSource = listaArticulos;
             dgvArticulos.Columns["Imagen"].Visible = false;
             dgvArticulos.Columns["Id_a_incrementar"].Visible = false;
-            brandComboBox.DataSource = marcaNegocio.listar();
-            brandComboBox.ValueMember = "Id";
-            brandComboBox.DisplayMember = "Descripcion";
-            categoryComboBox.DataSource = categoriaNegocio.listar();
-            categoryComboBox.ValueMember = "Id";
-            categoryComboBox.DisplayMember = "Descripcion";
+
+            campoComboBox.Items.Add("ID");
+            campoComboBox.Items.Add("Nombre");
+            campoComboBox.Items.Add("Descripcion");
+
+        }
+
+        private void CbxCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = campoComboBox.SelectedItem.ToString();
+            if (opcion == "ID")
+            {
+                criterioComboBox.Items.Clear();
+                criterioComboBox.Items.Add("Mayor a");
+                criterioComboBox.Items.Add("Menor a");
+                criterioComboBox.Items.Add("Igual a");
+            }
+            else
+            {
+                criterioComboBox.Items.Clear();
+                criterioComboBox.Items.Add("Comienza con");
+                criterioComboBox.Items.Add("Termina con");
+                criterioComboBox.Items.Add("Contiene");
+            }
 
         }
 
@@ -194,21 +210,80 @@ namespace tpWinformGroup9
                 MessageBox.Show(ex.ToString());
             }
         }
-        private int indiceActual = 0;
-        private void button1_Click(object sender, EventArgs e)
+
+        private void buttonBuscarFiltro_Click(object sender, EventArgs e)
         {
-            ImagenNegocio imagenNegocio = new ImagenNegocio();
-            listaImagen = imagenNegocio.listar();
-            Articulo seleccion = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            List<Imagen> imagenSeleccion = listaImagen.Where(imagen => imagen.IdArticulo == seleccion.ID).ToList();        
-            if (imagenSeleccion.Count >0)
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
             {
-                indiceActual = (indiceActual + 1) % imagenSeleccion.Count;
-                cargarImagen(imagenSeleccion[indiceActual].ImagenUrl);
+                if (validarFiltro())
+                {
+                    return;
+                }
+                string campo = campoComboBox.SelectedItem.ToString();
+                string criterio = criterioComboBox.SelectedItem.ToString();
+                string filtro = textBoxFiltro.Text;
 
+                List<Articulo> lista_filtrada = new List<Articulo>();
+                lista_filtrada = negocio.filtrar(campo, criterio, filtro);
+                agruparImagenes(lista_filtrada);
+                eliminarRepetidos(lista_filtrada);
+                dgvArticulos.DataSource = lista_filtrada;
+
+                if (dgvArticulos.CurrentRow == null)
+                {
+                    siguienteImgButton.Enabled = false;
+                    anteriorImgButton.Enabled = false;
+                    modifyButton.Enabled = false;
+                    deleteButton.Enabled = false;
+                }
             }
-            else { }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private bool validarFiltro()
+        {
+
+            if (campoComboBox.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione el campo para filtrar.");
+                return true;
+            }
+            if (criterioComboBox.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione el criterio para filtrar.");
+                return true;
+            }
+            if (campoComboBox.SelectedItem.ToString() == "ID")
+            {
+
+                if (string.IsNullOrEmpty(textBoxFiltro.Text))
+                {
+                    MessageBox.Show("Debes cargar el filtro para numericos...");
+                    return true;
+                }
+
+                if (!(soloNumeros(textBoxFiltro.Text)))
+                {
+                    MessageBox.Show("Solo numeros para filtrar por el campo numerico...");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool soloNumeros(string cadena)
+        {
+            foreach (char caracter in cadena)
+            {
+                if (!(char.IsNumber(caracter)))
+                    return false;
+            }
+            return true;
         }
     }
 }
