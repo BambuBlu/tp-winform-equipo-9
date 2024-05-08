@@ -188,6 +188,7 @@
             // criterioComboBox
             // 
             this.criterioComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.criterioComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.criterioComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.criterioComboBox.FormattingEnabled = true;
             this.criterioComboBox.Location = new System.Drawing.Point(1006, 100);
@@ -199,6 +200,7 @@
             // campoComboBox
             // 
             this.campoComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.campoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.campoComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.campoComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.campoComboBox.FormattingEnabled = true;

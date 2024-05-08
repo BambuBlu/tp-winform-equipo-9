@@ -223,10 +223,8 @@ namespace tpWinformGroup9
 
                 if (dgvArticulos.CurrentRow == null)
                 {
-                    siguienteImgButton.Enabled = false;
-                   
-                    modifyButton.Enabled = false;
-                    deleteButton.Enabled = false;
+                    MessageBox.Show("No se ha encontrado ningun resultado");
+                    CargarDataGrid();
                 }
             }
             catch (Exception ex)
@@ -294,8 +292,8 @@ namespace tpWinformGroup9
         private void btnReestablecer_Click(object sender, EventArgs e)
         {
             CargarDataGrid();
-
-            CargarCampoCbo();
+            textBoxFiltro.Clear();
+            criterioComboBox.ResetText();
         }
 
         private void CargarCampoCbo()
