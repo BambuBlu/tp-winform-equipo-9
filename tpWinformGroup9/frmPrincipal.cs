@@ -309,5 +309,14 @@ namespace tpWinformGroup9
             dgvArticulos.Columns["Imagen"].Visible = false;
             dgvArticulos.Columns["Id_a_incrementar"].Visible = false;
         }
+
+        private void addImgButton_Click(object sender, EventArgs e)
+        {
+            Articulo articulo_seleccionado;
+            articulo_seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            addImage nueva_imagen = new addImage(articulo_seleccionado);
+            nueva_imagen.ShowDialog();
+        }
     }
 }

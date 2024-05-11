@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addImage.Designer.cs">
+      <DependentUpon>addImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddModify.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="addImage.resx">
+      <DependentUpon>addImage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddModify.resx">
       <DependentUpon>frmAddModify.cs</DependentUpon>
     </EmbeddedResource>
