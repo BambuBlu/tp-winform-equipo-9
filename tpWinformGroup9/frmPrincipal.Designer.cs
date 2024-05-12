@@ -31,6 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.addButton = new System.Windows.Forms.Button();
             this.containerPanel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.marcaCategoriaButton = new System.Windows.Forms.Button();
+            this.categoriaComboBox = new System.Windows.Forms.ComboBox();
+            this.marcaComboBox = new System.Windows.Forms.ComboBox();
             this.btnReestablecer = new System.Windows.Forms.Button();
             this.buttonBuscarFiltro = new System.Windows.Forms.Button();
             this.textBoxFiltro = new System.Windows.Forms.TextBox();
@@ -41,12 +46,12 @@
             this.criterioComboBox = new System.Windows.Forms.ComboBox();
             this.campoComboBox = new System.Windows.Forms.ComboBox();
             this.containerPanel2 = new System.Windows.Forms.Panel();
+            this.addImgButton = new System.Windows.Forms.Button();
             this.siguienteImgButton = new System.Windows.Forms.PictureBox();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.articleImage = new System.Windows.Forms.PictureBox();
             this.modifyButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.addImgButton = new System.Windows.Forms.Button();
             this.containerPanel1.SuspendLayout();
             this.containerPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siguienteImgButton)).BeginInit();
@@ -78,6 +83,11 @@
             // containerPanel1
             // 
             this.containerPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.containerPanel1.Controls.Add(this.label6);
+            this.containerPanel1.Controls.Add(this.label1);
+            this.containerPanel1.Controls.Add(this.marcaCategoriaButton);
+            this.containerPanel1.Controls.Add(this.categoriaComboBox);
+            this.containerPanel1.Controls.Add(this.marcaComboBox);
             this.containerPanel1.Controls.Add(this.btnReestablecer);
             this.containerPanel1.Controls.Add(this.buttonBuscarFiltro);
             this.containerPanel1.Controls.Add(this.textBoxFiltro);
@@ -92,6 +102,72 @@
             this.containerPanel1.Name = "containerPanel1";
             this.containerPanel1.Size = new System.Drawing.Size(1131, 105);
             this.containerPanel1.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(489, 12);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 13);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Categoria";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(327, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Marca";
+            // 
+            // marcaCategoriaButton
+            // 
+            this.marcaCategoriaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.marcaCategoriaButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
+            this.marcaCategoriaButton.FlatAppearance.BorderSize = 2;
+            this.marcaCategoriaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.marcaCategoriaButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.marcaCategoriaButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
+            this.marcaCategoriaButton.Image = ((System.Drawing.Image)(resources.GetObject("marcaCategoriaButton.Image")));
+            this.marcaCategoriaButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.marcaCategoriaButton.Location = new System.Drawing.Point(314, 59);
+            this.marcaCategoriaButton.Margin = new System.Windows.Forms.Padding(20, 3, 20, 3);
+            this.marcaCategoriaButton.Name = "marcaCategoriaButton";
+            this.marcaCategoriaButton.Size = new System.Drawing.Size(247, 33);
+            this.marcaCategoriaButton.TabIndex = 12;
+            this.marcaCategoriaButton.Text = "Modificar filtros Marca/Categoria";
+            this.marcaCategoriaButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.marcaCategoriaButton.UseVisualStyleBackColor = false;
+            this.marcaCategoriaButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // categoriaComboBox
+            // 
+            this.categoriaComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.categoriaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.categoriaComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.categoriaComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoriaComboBox.FormattingEnabled = true;
+            this.categoriaComboBox.Location = new System.Drawing.Point(445, 28);
+            this.categoriaComboBox.Name = "categoriaComboBox";
+            this.categoriaComboBox.Size = new System.Drawing.Size(150, 21);
+            this.categoriaComboBox.TabIndex = 14;
+            this.categoriaComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // marcaComboBox
+            // 
+            this.marcaComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.marcaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.marcaComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.marcaComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.marcaComboBox.FormattingEnabled = true;
+            this.marcaComboBox.Location = new System.Drawing.Point(277, 28);
+            this.marcaComboBox.Name = "marcaComboBox";
+            this.marcaComboBox.Size = new System.Drawing.Size(150, 21);
+            this.marcaComboBox.TabIndex = 13;
+            this.marcaComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btnReestablecer
             // 
@@ -136,7 +212,7 @@
             this.textBoxFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
             this.textBoxFiltro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxFiltro.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.textBoxFiltro.Location = new System.Drawing.Point(702, 53);
+            this.textBoxFiltro.Location = new System.Drawing.Point(672, 72);
             this.textBoxFiltro.Name = "textBoxFiltro";
             this.textBoxFiltro.Size = new System.Drawing.Size(246, 20);
             this.textBoxFiltro.TabIndex = 6;
@@ -145,17 +221,17 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(711, 34);
+            this.label5.Location = new System.Drawing.Point(681, 53);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 15);
+            this.label5.Size = new System.Drawing.Size(145, 15);
             this.label5.TabIndex = 5;
-            this.label5.Text = "Ingrese el filtro";
+            this.label5.Text = "Ingrese palabra clave";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(547, 36);
+            this.label4.Location = new System.Drawing.Point(854, 12);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 4;
@@ -164,10 +240,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(17, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(274, 31);
+            this.label2.Size = new System.Drawing.Size(248, 29);
             this.label2.TabIndex = 8;
             this.label2.Text = "Filtros de Busqueda";
             // 
@@ -175,7 +251,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(362, 36);
+            this.label3.Location = new System.Drawing.Point(669, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 3;
@@ -187,7 +263,7 @@
             this.criterioComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.criterioComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.criterioComboBox.FormattingEnabled = true;
-            this.criterioComboBox.Location = new System.Drawing.Point(503, 52);
+            this.criterioComboBox.Location = new System.Drawing.Point(810, 28);
             this.criterioComboBox.Name = "criterioComboBox";
             this.criterioComboBox.Size = new System.Drawing.Size(150, 21);
             this.criterioComboBox.TabIndex = 2;
@@ -199,7 +275,7 @@
             this.campoComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.campoComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.campoComboBox.FormattingEnabled = true;
-            this.campoComboBox.Location = new System.Drawing.Point(314, 52);
+            this.campoComboBox.Location = new System.Drawing.Point(621, 28);
             this.campoComboBox.Name = "campoComboBox";
             this.campoComboBox.Size = new System.Drawing.Size(150, 21);
             this.campoComboBox.TabIndex = 1;
@@ -216,6 +292,27 @@
             this.containerPanel2.Name = "containerPanel2";
             this.containerPanel2.Size = new System.Drawing.Size(1131, 309);
             this.containerPanel2.TabIndex = 9;
+            // 
+            // addImgButton
+            // 
+            this.addImgButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
+            this.addImgButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
+            this.addImgButton.FlatAppearance.BorderSize = 2;
+            this.addImgButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addImgButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addImgButton.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.addImgButton.Image = ((System.Drawing.Image)(resources.GetObject("addImgButton.Image")));
+            this.addImgButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addImgButton.Location = new System.Drawing.Point(20, 260);
+            this.addImgButton.Margin = new System.Windows.Forms.Padding(20, 3, 40, 3);
+            this.addImgButton.Name = "addImgButton";
+            this.addImgButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.addImgButton.Size = new System.Drawing.Size(195, 33);
+            this.addImgButton.TabIndex = 12;
+            this.addImgButton.Text = "Añadir imagen nueva";
+            this.addImgButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addImgButton.UseVisualStyleBackColor = false;
+            this.addImgButton.Click += new System.EventHandler(this.addImgButton_Click);
             // 
             // siguienteImgButton
             // 
@@ -296,27 +393,6 @@
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
-            // addImgButton
-            // 
-            this.addImgButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
-            this.addImgButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
-            this.addImgButton.FlatAppearance.BorderSize = 2;
-            this.addImgButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addImgButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addImgButton.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.addImgButton.Image = ((System.Drawing.Image)(resources.GetObject("addImgButton.Image")));
-            this.addImgButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addImgButton.Location = new System.Drawing.Point(20, 260);
-            this.addImgButton.Margin = new System.Windows.Forms.Padding(20, 3, 40, 3);
-            this.addImgButton.Name = "addImgButton";
-            this.addImgButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addImgButton.Size = new System.Drawing.Size(195, 33);
-            this.addImgButton.TabIndex = 12;
-            this.addImgButton.Text = "Añadir imagen nueva";
-            this.addImgButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addImgButton.UseVisualStyleBackColor = false;
-            this.addImgButton.Click += new System.EventHandler(this.addImgButton_Click);
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -361,6 +437,11 @@
         private System.Windows.Forms.PictureBox siguienteImgButton;
         private System.Windows.Forms.Button btnReestablecer;
         private System.Windows.Forms.Button addImgButton;
+        private System.Windows.Forms.Button marcaCategoriaButton;
+        private System.Windows.Forms.ComboBox categoriaComboBox;
+        private System.Windows.Forms.ComboBox marcaComboBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label1;
     }
 }
 
