@@ -46,23 +46,23 @@ namespace tpWinformGroup9
                 if (articulo.Imagenes == null)
                     articulo.Imagenes = new List<string>();
 
-                if (codigoTextBox.Text != null)
-                    if (!string.IsNullOrEmpty(codigoTextBox.Text))
-                        articulo.Codigo = codigoTextBox.Text;
-                    else
-                        camposIncompletos = true;
 
-                if (textBox1.Text != null)
-                    if (!string.IsNullOrEmpty(textBox1.Text))
-                        articulo.Nombre = textBox1.Text;
-                    else
-                        camposIncompletos = true;
+                if (!string.IsNullOrEmpty(codigoTextBox.Text))
+                    articulo.Codigo = codigoTextBox.Text;
+                else
+                     camposIncompletos = true;
 
-                if (textBox2.Text != null)
-                    if (!string.IsNullOrEmpty(textBox2.Text))
-                        articulo.Descripcion = textBox2.Text;
-                    else
-                        camposIncompletos = true;
+
+                if (!string.IsNullOrEmpty(textBox1.Text))
+                    articulo.Nombre = textBox1.Text;
+                else
+                    camposIncompletos = true;
+
+
+                if (!string.IsNullOrEmpty(textBox2.Text))
+                    articulo.Descripcion = textBox2.Text;
+                else
+                    camposIncompletos = true;
 
                 articulo.Categoria = (Categoria)categoriaComboBx.SelectedItem;
                 articulo.Marca = (Marca)marcaComboBx.SelectedItem;
@@ -70,11 +70,12 @@ namespace tpWinformGroup9
                 if (precioTextBox.Text != null)
                     articulo.Precio = decimal.Parse(precioTextBox.Text);
 
+
                 articulo.Imagen = new Imagen();
 
-                if (listaAuxImg.Count != 0 )
+                if (!string.IsNullOrEmpty(textBox3.Text))
                 {
-                    articulo.Imagenes.AddRange(listaAuxImg);
+                    articulo.Imagenes.Add(textBox3.Text);
                     articulo.Imagen.ImagenUrl = textBox3.Text;
                 }
                 else
