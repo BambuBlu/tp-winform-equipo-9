@@ -187,6 +187,7 @@ namespace tpWinformGroup9.Negocio
             }
 
         }
+        
 
         public List<Articulo> filtrar(string campo, string criterio, string filtro)
         {

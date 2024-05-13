@@ -42,6 +42,8 @@ namespace tpWinformGroup9
             cargar_Componentes();
             CargarDataGrid();
             CargarCampoCbo();
+            CargarMarcaCbo();
+            CargarCategoriaCbo();
 
         }
 
@@ -318,5 +320,46 @@ namespace tpWinformGroup9
             addImage nueva_imagen = new addImage(articulo_seleccionado);
             nueva_imagen.ShowDialog();
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CargarMarcaCbo()
+        {
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            listaArticulos = articuloNegocio.listar();
+            List<string> marcaUnicas = new List<string>();
+
+            foreach (var articulo in listaArticulos) 
+            {
+                if (!marcaUnicas.Contains(articulo.Marca.ToString()))
+                {
+                    marcaUnicas.Add(articulo.Marca.ToString());
+                }
+            }
+            marcaComboBox.DataSource = marcaUnicas;
+        }
+        private void CargarCategoriaCbo() 
+        {
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            listaArticulos = articuloNegocio.listar();
+            List<string> categoriaUnicas = new List<string>();
+
+            foreach (var articulo in listaArticulos)
+            {
+                if (!categoriaUnicas.Contains(articulo.Categoria.ToString()))
+                {
+                    categoriaUnicas.Add(articulo.Categoria.ToString());
+                }
+            }
+            categoriacomboBox.DataSource = categoriaUnicas;
+
+        }
+
+      
+
+     
     }
 }
