@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using tpWinformGroup9.Modelo;
 using tpWinformGroup9.Negocio;
@@ -49,6 +50,11 @@ namespace tpWinformGroup9
 
         private void CbxCampo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(campoComboBox.SelectedItem == null)
+            { 
+                return; 
+            }
+
             string opcion = campoComboBox.SelectedItem.ToString();
             if (opcion == "ID")
             {
@@ -207,18 +213,33 @@ namespace tpWinformGroup9
         private void buttonBuscarFiltro_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
+            string marca = "";
+            string categoria = "";
             try
             {
+                List<Articulo> lista_filtrada = new List<Articulo>();
+                if (marcaComboBox.SelectedItem != null)
+                {
+                    marca = marcaComboBox.SelectedItem.ToString();
+                }
+
+
+                if (categoriacomboBox.SelectedItem != null)
+                {
+                    categoria = categoriacomboBox.SelectedItem.ToString();
+                }
+                lista_filtrada = negocio.filtrarMarcaCategoria(marca, categoria);
+
                 if (validarFiltro())
                 {
+                    dgvArticulos.DataSource = lista_filtrada;
                     return;
                 }
                 string campo = campoComboBox.SelectedItem.ToString();
                 string criterio = criterioComboBox.SelectedItem.ToString();
                 string filtro = textBoxFiltro.Text;
 
-                List<Articulo> lista_filtrada = new List<Articulo>();
-                lista_filtrada = negocio.filtrar(campo, criterio, filtro);
+                lista_filtrada = negocio.filtrar(lista_filtrada, campo, criterio, filtro);
                 agruparImagenes(lista_filtrada);
                 eliminarRepetidos(lista_filtrada);
                 dgvArticulos.DataSource = lista_filtrada;
@@ -231,7 +252,6 @@ namespace tpWinformGroup9
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.ToString());
             }
         }
@@ -295,7 +315,17 @@ namespace tpWinformGroup9
         {
             CargarDataGrid();
             textBoxFiltro.Clear();
-            criterioComboBox.ResetText();
+            criterioComboBox.SelectedItem = null;
+            criterioComboBox.SelectedText = " ";
+
+            campoComboBox.SelectedItem = null;
+            campoComboBox.SelectedText = " ";
+
+            categoriacomboBox.SelectedItem = null;
+            categoriacomboBox.SelectedText = " ";
+
+            marcaComboBox.SelectedItem = null;
+            marcaComboBox.SelectedText = " ";
         }
 
         private void CargarCampoCbo()
@@ -342,7 +372,18 @@ namespace tpWinformGroup9
 
         }
 
-        private void categoriacomboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        private void modifyMarcaButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void modifyCategoriaButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        /*private void categoriacomboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             string marca = "";
@@ -382,9 +423,9 @@ namespace tpWinformGroup9
 
                 MessageBox.Show(ex.ToString());
             }
-        }
+        }^*/
 
-        private void marcaComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        /*private void marcaComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             string marca = "";
@@ -424,6 +465,6 @@ namespace tpWinformGroup9
 
                 MessageBox.Show(ex.ToString());
             }
-        }
+        }*/
     }
 }

@@ -189,7 +189,7 @@ namespace tpWinformGroup9.Negocio
         }
         
 
-        public List<Articulo> filtrar(string campo, string criterio, string filtro)
+        /*public List<Articulo> filtrar(string campo, string criterio, string filtro)
         {
             List<Articulo> lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
@@ -316,16 +316,121 @@ namespace tpWinformGroup9.Negocio
 
                 throw ex;
             }
+        }*/
+
+        public List<Articulo> filtrar(List<Articulo> listaArticulos, string campo, string criterio, string filtro)
+        {
+            List<Articulo> filtrados = new List<Articulo>();
+
+            foreach (Articulo articulo in listaArticulos)
+            {
+                switch (campo)
+                {
+
+                    case "ID":
+                        switch (criterio)
+                        {
+                            case "Mayor a":
+                                if(articulo.ID > int.Parse(filtro))
+                                {
+                                    filtrados.Add(articulo);
+                                }
+                                break;
+
+                            case "Menor a":
+                                if (articulo.ID < int.Parse(filtro))
+                                {
+                                    filtrados.Add(articulo);
+                                }
+                                break;
+
+                            default:
+                                if (articulo.ID >= int.Parse(filtro))
+                                {
+                                    filtrados.Add(articulo);
+                                }
+                                break;
+                        }
+                        break;
+
+                    case "Nombre":
+                        switch (criterio)
+                        {
+                            case "Comienza con":
+                                if (articulo.Nombre.StartsWith(filtro))
+                                {
+                                    filtrados.Add(articulo);
+                                }
+                                break;
+
+                            case "Termina con":
+                                if (articulo.Nombre.EndsWith(filtro))
+                                {
+                                    filtrados.Add(articulo);
+                                }
+                                break;
+                            default:
+                                if (articulo.Nombre.Contains(filtro))
+                                {
+                                    filtrados.Add(articulo);
+                                }
+                                break;
+                        }
+                        break;
+
+                    case "Descripcion":
+                        switch (criterio)
+                        {
+                            case "Comienza con":
+                                if (articulo.Descripcion.StartsWith(filtro))
+                                {
+                                    filtrados.Add(articulo);
+                                }
+                                break;
+
+                            case "Termina con":
+                                if (articulo.Descripcion.EndsWith(filtro))
+                                {
+                                    filtrados.Add(articulo);
+                                }
+                                break;
+
+                            default:
+                                if (articulo.Descripcion.Contains(filtro))
+                                {
+                                    filtrados.Add(articulo);
+                                }
+                                break;
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
+            return filtrados;
         }
+
         public List<Articulo> filtrarMarcaCategoria(string marca, string categoria)
         {
             List<Articulo> lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
+            string consulta = "";
             try
             {
-                string consulta = "SELECT a.Id, a.Codigo, a.Nombre, a.Descripcion, a.IdMarca as marca, a.IdCategoria as categoria, a.Precio, m.Descripcion as mdescripcion, i.ImagenUrl as link, c.Descripcion as cdescripcion FROM ARTICULOS a LEFT JOIN MARCAS m ON m.Id = a.IdMarca LEFT JOIN IMAGENES i ON i.IdArticulo = a.Id LEFT JOIN CATEGORIAS c ON c.Id = a.IdCategoria WHERE m.Descripcion = @marca AND c.Descripcion = @categoria";
-
-
+                if(marca.Count() > 0 && !(categoria.Count() > 0))
+                {
+                    consulta = "SELECT DISTINCT a.Id, a.Codigo, a.Nombre, a.Descripcion, a.IdMarca as marca, a.IdCategoria as categoria, a.Precio, m.Descripcion as mdescripcion, i.ImagenUrl as link, c.Descripcion as cdescripcion FROM ARTICULOS a LEFT JOIN MARCAS m ON m.Id = a.IdMarca LEFT JOIN IMAGENES i ON i.IdArticulo = a.Id LEFT JOIN CATEGORIAS c ON c.Id = a.IdCategoria WHERE m.Descripcion = @marca";
+                }
+                else if (!(marca.Count() > 0) && categoria.Count() > 0)
+                {
+                    consulta = "SELECT DISTINCT a.Id, a.Codigo, a.Nombre, a.Descripcion, a.IdMarca as marca, a.IdCategoria as categoria, a.Precio, m.Descripcion as mdescripcion, i.ImagenUrl as link, c.Descripcion as cdescripcion FROM ARTICULOS a LEFT JOIN MARCAS m ON m.Id = a.IdMarca LEFT JOIN IMAGENES i ON i.IdArticulo = a.Id LEFT JOIN CATEGORIAS c ON c.Id = a.IdCategoria WHERE c.Descripcion = @categoria";
+                }
+                else
+                {
+                    consulta = "SELECT DISTINCT a.Id, a.Codigo, a.Nombre, a.Descripcion, a.IdMarca as marca, a.IdCategoria as categoria, a.Precio, m.Descripcion as mdescripcion, i.ImagenUrl as link, c.Descripcion as cdescripcion FROM ARTICULOS a LEFT JOIN MARCAS m ON m.Id = a.IdMarca LEFT JOIN IMAGENES i ON i.IdArticulo = a.Id LEFT JOIN CATEGORIAS c ON c.Id = a.IdCategoria WHERE m.Descripcion = @marca AND c.Descripcion = @categoria";
+                }
 
                 // Agregar parámetros para marca y categoría
                 datos.setParametro("@marca", marca);
