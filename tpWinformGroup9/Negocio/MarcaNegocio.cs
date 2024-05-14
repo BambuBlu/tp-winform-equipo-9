@@ -61,5 +61,55 @@ namespace tpWinformGroup9.Negocio
             }
 
         }
+
+        public void agregar(Marca nuevoArticulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            List<Marca> lista = listar();
+
+            Marca articulo_aux = new Marca();
+
+            articulo_aux = lista.Last();
+
+            try
+            {
+                datos.setConsulta("INSERT INTO MARCAS (Descripcion) VALUES (@Descripcion)");
+                datos.setParametro("@Descripcion", nuevoArticulo.Descripcion);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void modificar(Marca articulo, string modificacion)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setConsulta("UPDATE MARCAS set Descripcion = @descripcion WHERE Id = @id");
+                datos.setParametro("@id", articulo.Id);
+                datos.setParametro("@descripcion", modificacion);
+
+                datos.ejecutarLectura();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
     }
 }

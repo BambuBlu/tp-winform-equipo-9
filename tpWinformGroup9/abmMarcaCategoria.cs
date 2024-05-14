@@ -45,47 +45,123 @@ namespace tpWinformGroup9
         {
             if(dgvMarcaCategoria.CurrentRow.DataBoundItem == null)
             {
-                return; ///colocar cartel que diga "no se selecciono algo"
+                MessageBox.Show("Seleccione un item para continuar");
+                return;
             }
 
 
             if (tipo) //Marca
             {
                 MarcaNegocio marca = new MarcaNegocio();
-                /*Marca seleccion = seleccion.Descripcion
+                Marca seleccion = new Marca();
 
-                marca.agregar()*/
+                if (abmTextBox.Text.Count() == 0)
+                {
+                    MessageBox.Show("No se admiten campos vacios");
+                    return;
+                }
+
+                seleccion.Descripcion = abmTextBox.Text;
+
+                marca.agregar(seleccion);
                 MessageBox.Show("Articulo añadido correctamente!");
-
             }
             else //Categoria
             {
+                CategoriaNegocio categoria = new CategoriaNegocio();
+                Categoria seleccion = new Categoria();
 
+                if (abmTextBox.Text.Count() == 0)
+                {
+                    MessageBox.Show("No se admiten campos vacios");
+                    return;
+                }
+
+                seleccion.Descripcion = abmTextBox.Text;
+
+                categoria.agregar(seleccion);
+                MessageBox.Show("Articulo añadido correctamente!");
             }
+
+            Close();
         }
 
         private void modifyButton_Click(object sender, EventArgs e)
         {
             if (dgvMarcaCategoria.CurrentRow.DataBoundItem == null)
             {
-                return; ///colocar cartel que diga "no se selecciono algo"
+                MessageBox.Show("Seleccione un item para continuar");
+                return;
             }
 
             if (tipo) //Marca
             {
+                MarcaNegocio marca = new MarcaNegocio();
+                Marca seleccion = (Marca)dgvMarcaCategoria.CurrentRow.DataBoundItem;
+
+                if(abmTextBox.Text.Count() == 0)
+                {
+                    MessageBox.Show("No se admiten campos vacios");
+                    return;
+                }
+
+                string modificacion = abmTextBox.Text;
+
+
+                try
+                {
+                    DialogResult respuesta = MessageBox.Show("¿Desea modificar la marca?", "Modificado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        marca.modificar(seleccion, modificacion);
+                        MessageBox.Show("Modificado correctamente");
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString());
+                }
 
             }
             else //Categoria
             {
+                CategoriaNegocio marca = new CategoriaNegocio();
+                Categoria seleccion = (Categoria)dgvMarcaCategoria.CurrentRow.DataBoundItem;
 
+                if (abmTextBox.Text.Count() == 0)
+                {
+                    MessageBox.Show("No se admiten campos vacios");
+                    return;
+                }
+
+                string modificacion = abmTextBox.Text;
+
+                try
+                {
+                    DialogResult respuesta = MessageBox.Show("¿Desea modificar la categoria?", "Modificado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        marca.modificar(seleccion, modificacion);
+                        MessageBox.Show("Modificado correctamente");
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.ToString());
+                }
             }
+
+            Close();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
             if (dgvMarcaCategoria.CurrentRow.DataBoundItem == null)
             {
-                return; ///colocar cartel que diga "no se selecciono algo"
+                MessageBox.Show("Seleccione un item para continuar");
+                return;
             }
 
             if (tipo) //Marca
@@ -98,7 +174,6 @@ namespace tpWinformGroup9
                     DialogResult respuesta = MessageBox.Show("¿Desea eliminar la marca?", "Eliminado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (respuesta == DialogResult.Yes)
                     {
-                        seleccion = (Marca)dgvMarcaCategoria.CurrentRow.DataBoundItem;
                         marca.Eliminar(seleccion.Id);
                         MessageBox.Show("Eliminado correctamente");
                     }
@@ -120,7 +195,6 @@ namespace tpWinformGroup9
                     DialogResult respuesta = MessageBox.Show("¿Desea eliminar el articulo?", "Eliminado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (respuesta == DialogResult.Yes)
                     {
-                        seleccion = (Categoria)dgvMarcaCategoria.CurrentRow.DataBoundItem;
                         categoria.Eliminar(seleccion.Id);
                     }
                 }
@@ -130,6 +204,8 @@ namespace tpWinformGroup9
                     MessageBox.Show(ex.ToString());
                 }
             }
+
+            Close();
         }
     }
 }

@@ -372,6 +372,8 @@ namespace tpWinformGroup9
 
             abmMarcaCategoria abmMarca = new abmMarcaCategoria(true);
             abmMarca.ShowDialog();
+
+            CargarMarcaCbo();
         }
 
         private void modifyCategoriaButton_Click(object sender, EventArgs e)
@@ -379,6 +381,8 @@ namespace tpWinformGroup9
 
             abmMarcaCategoria abmMarcaCategoria = new abmMarcaCategoria(false);
             abmMarcaCategoria.ShowDialog();
+
+            CargarCategoriaCbo();
         }
 
 

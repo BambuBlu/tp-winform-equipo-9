@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 using tpWinformGroup9.Modelo;
 
 namespace tpWinformGroup9.Negocio
@@ -43,13 +45,63 @@ namespace tpWinformGroup9.Negocio
 
             try
             {
-                datos.setConsulta("delete from CATEGORIA where id = @id");
+                datos.setConsulta("delete from CATEGORIAS where id = @id");
                 datos.setParametro("@id", id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
             {
 
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+
+        public void agregar(Categoria nuevoArticulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            List<Categoria> lista = listar();
+
+            Categoria articulo_aux = new Categoria();
+
+            articulo_aux = lista.Last();
+
+            try
+            {
+                datos.setConsulta("INSERT INTO CATEGORIAS (Descripcion) VALUES (@Descripcion)");
+                datos.setParametro("@Descripcion", nuevoArticulo.Descripcion);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void modificar(Categoria articulo, string modificacion)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setConsulta("UPDATE CATEGORIAS set Descripcion = @descripcion WHERE Id = @id");
+                datos.setParametro("@id", articulo.Id);
+                datos.setParametro("@descripcion", modificacion);
+
+                datos.ejecutarLectura();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
                 throw ex;
             }
             finally
