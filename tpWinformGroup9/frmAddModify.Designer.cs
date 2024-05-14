@@ -53,7 +53,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.btnAddImage = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.backButton = new System.Windows.Forms.Button();
@@ -304,7 +303,6 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
-            this.panel8.Controls.Add(this.btnAddImage);
             this.panel8.Controls.Add(this.textBox3);
             this.panel8.Controls.Add(this.label7);
             this.panel8.Location = new System.Drawing.Point(12, 272);
@@ -312,17 +310,6 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(427, 39);
             this.panel8.TabIndex = 7;
-            // 
-            // btnAddImage
-            // 
-            this.btnAddImage.Location = new System.Drawing.Point(398, 9);
-            this.btnAddImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnAddImage.Name = "btnAddImage";
-            this.btnAddImage.Size = new System.Drawing.Size(18, 18);
-            this.btnAddImage.TabIndex = 2;
-            this.btnAddImage.Text = "+";
-            this.btnAddImage.UseVisualStyleBackColor = true;
-            this.btnAddImage.Click += new System.EventHandler(this.btnAddImage_Click);
             // 
             // textBox3
             // 
@@ -451,6 +438,5 @@
         private System.Windows.Forms.ComboBox marcaComboBx;
         private System.Windows.Forms.ComboBox categoriaComboBx;
         private System.Windows.Forms.PictureBox articleImage;
-        private System.Windows.Forms.Button btnAddImage;
     }
 }

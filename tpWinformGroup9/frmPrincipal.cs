@@ -374,6 +374,7 @@ namespace tpWinformGroup9
             abmMarca.ShowDialog();
 
             CargarMarcaCbo();
+            cargar_Componentes();
         }
 
         private void modifyCategoriaButton_Click(object sender, EventArgs e)
@@ -383,6 +384,7 @@ namespace tpWinformGroup9
             abmMarcaCategoria.ShowDialog();
 
             CargarCategoriaCbo();
+            cargar_Componentes();
         }
 
 
