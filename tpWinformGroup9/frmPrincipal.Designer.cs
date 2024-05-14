@@ -68,11 +68,11 @@
             this.addButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.addButton.Image = ((System.Drawing.Image)(resources.GetObject("addButton.Image")));
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addButton.Location = new System.Drawing.Point(930, 444);
-            this.addButton.Margin = new System.Windows.Forms.Padding(20, 3, 40, 3);
+            this.addButton.Location = new System.Drawing.Point(1860, 854);
+            this.addButton.Margin = new System.Windows.Forms.Padding(40, 6, 80, 6);
             this.addButton.Name = "addButton";
             this.addButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addButton.Size = new System.Drawing.Size(202, 33);
+            this.addButton.Size = new System.Drawing.Size(404, 63);
             this.addButton.TabIndex = 0;
             this.addButton.Text = "Agregar articulo nuevo";
             this.addButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -95,19 +95,20 @@
             this.containerPanel1.Controls.Add(this.label3);
             this.containerPanel1.Controls.Add(this.criterioComboBox);
             this.containerPanel1.Controls.Add(this.campoComboBox);
-            this.containerPanel1.Location = new System.Drawing.Point(12, -8);
-            this.containerPanel1.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
+            this.containerPanel1.Location = new System.Drawing.Point(24, -1);
+            this.containerPanel1.Margin = new System.Windows.Forms.Padding(6, 6, 60, 6);
             this.containerPanel1.Name = "containerPanel1";
-            this.containerPanel1.Size = new System.Drawing.Size(1131, 105);
+            this.containerPanel1.Size = new System.Drawing.Size(2262, 197);
             this.containerPanel1.TabIndex = 7;
             // 
             // LabCategoria
             // 
             this.LabCategoria.AutoSize = true;
             this.LabCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabCategoria.Location = new System.Drawing.Point(460, 26);
+            this.LabCategoria.Location = new System.Drawing.Point(920, 50);
+            this.LabCategoria.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.LabCategoria.Name = "LabCategoria";
-            this.LabCategoria.Size = new System.Drawing.Size(61, 13);
+            this.LabCategoria.Size = new System.Drawing.Size(115, 26);
             this.LabCategoria.TabIndex = 16;
             this.LabCategoria.Text = "Categoria";
             this.LabCategoria.Click += new System.EventHandler(this.label6_Click);
@@ -116,9 +117,10 @@
             // 
             this.labMarca.AutoSize = true;
             this.labMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labMarca.Location = new System.Drawing.Point(553, 26);
+            this.labMarca.Location = new System.Drawing.Point(1106, 50);
+            this.labMarca.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labMarca.Name = "labMarca";
-            this.labMarca.Size = new System.Drawing.Size(42, 13);
+            this.labMarca.Size = new System.Drawing.Size(77, 26);
             this.labMarca.TabIndex = 15;
             this.labMarca.Text = "Marca";
             // 
@@ -129,11 +131,12 @@
             this.categoriacomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.categoriacomboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoriacomboBox.FormattingEnabled = true;
-            this.categoriacomboBox.Location = new System.Drawing.Point(452, 53);
+            this.categoriacomboBox.Location = new System.Drawing.Point(904, 102);
+            this.categoriacomboBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.categoriacomboBox.Name = "categoriacomboBox";
-            this.categoriacomboBox.Size = new System.Drawing.Size(77, 21);
+            this.categoriacomboBox.Size = new System.Drawing.Size(150, 34);
             this.categoriacomboBox.TabIndex = 14;
-            this.categoriacomboBox.SelectedIndexChanged += new System.EventHandler(this.categoriacomboBox_SelectedIndexChanged);
+            this.categoriacomboBox.SelectionChangeCommitted += new System.EventHandler(this.categoriacomboBox_SelectionChangeCommitted);
             // 
             // marcaComboBox
             // 
@@ -142,11 +145,12 @@
             this.marcaComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.marcaComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.marcaComboBox.FormattingEnabled = true;
-            this.marcaComboBox.Location = new System.Drawing.Point(546, 52);
+            this.marcaComboBox.Location = new System.Drawing.Point(1092, 100);
+            this.marcaComboBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.marcaComboBox.Name = "marcaComboBox";
-            this.marcaComboBox.Size = new System.Drawing.Size(77, 21);
+            this.marcaComboBox.Size = new System.Drawing.Size(150, 34);
             this.marcaComboBox.TabIndex = 13;
-            this.marcaComboBox.SelectedIndexChanged += new System.EventHandler(this.marcaComboBox_SelectedIndexChanged);
+            this.marcaComboBox.SelectionChangeCommitted += new System.EventHandler(this.marcaComboBox_SelectionChangeCommitted);
             // 
             // btnReestablecer
             // 
@@ -158,10 +162,10 @@
             this.btnReestablecer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
             this.btnReestablecer.Image = ((System.Drawing.Image)(resources.GetObject("btnReestablecer.Image")));
             this.btnReestablecer.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReestablecer.Location = new System.Drawing.Point(980, 63);
-            this.btnReestablecer.Margin = new System.Windows.Forms.Padding(20, 3, 20, 3);
+            this.btnReestablecer.Location = new System.Drawing.Point(1960, 121);
+            this.btnReestablecer.Margin = new System.Windows.Forms.Padding(40, 6, 40, 6);
             this.btnReestablecer.Name = "btnReestablecer";
-            this.btnReestablecer.Size = new System.Drawing.Size(132, 33);
+            this.btnReestablecer.Size = new System.Drawing.Size(264, 63);
             this.btnReestablecer.TabIndex = 12;
             this.btnReestablecer.Text = "Reestablecer";
             this.btnReestablecer.UseVisualStyleBackColor = false;
@@ -177,10 +181,10 @@
             this.buttonBuscarFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
             this.buttonBuscarFiltro.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarFiltro.Image")));
             this.buttonBuscarFiltro.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonBuscarFiltro.Location = new System.Drawing.Point(980, 24);
-            this.buttonBuscarFiltro.Margin = new System.Windows.Forms.Padding(20, 3, 20, 3);
+            this.buttonBuscarFiltro.Location = new System.Drawing.Point(1960, 46);
+            this.buttonBuscarFiltro.Margin = new System.Windows.Forms.Padding(40, 6, 40, 6);
             this.buttonBuscarFiltro.Name = "buttonBuscarFiltro";
-            this.buttonBuscarFiltro.Size = new System.Drawing.Size(132, 33);
+            this.buttonBuscarFiltro.Size = new System.Drawing.Size(264, 63);
             this.buttonBuscarFiltro.TabIndex = 11;
             this.buttonBuscarFiltro.Text = "Aplicar";
             this.buttonBuscarFiltro.UseVisualStyleBackColor = false;
@@ -191,18 +195,20 @@
             this.textBoxFiltro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
             this.textBoxFiltro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxFiltro.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.textBoxFiltro.Location = new System.Drawing.Point(856, 53);
+            this.textBoxFiltro.Location = new System.Drawing.Point(1712, 102);
+            this.textBoxFiltro.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.textBoxFiltro.Name = "textBoxFiltro";
-            this.textBoxFiltro.Size = new System.Drawing.Size(101, 20);
+            this.textBoxFiltro.Size = new System.Drawing.Size(200, 31);
             this.textBoxFiltro.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(853, 24);
+            this.label5.Location = new System.Drawing.Point(1706, 46);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 15);
+            this.label5.Size = new System.Drawing.Size(189, 29);
             this.label5.TabIndex = 5;
             this.label5.Text = "Ingrese el filtro";
             // 
@@ -210,9 +216,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(749, 26);
+            this.label4.Location = new System.Drawing.Point(1498, 50);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 13);
+            this.label4.Size = new System.Drawing.Size(90, 26);
             this.label4.TabIndex = 4;
             this.label4.Text = "Criterio";
             // 
@@ -220,9 +227,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(17, 40);
+            this.label2.Location = new System.Drawing.Point(42, 70);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(274, 31);
+            this.label2.Size = new System.Drawing.Size(526, 63);
             this.label2.TabIndex = 8;
             this.label2.Text = "Filtros de Busqueda";
             // 
@@ -230,9 +238,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(657, 26);
+            this.label3.Location = new System.Drawing.Point(1314, 50);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.Size = new System.Drawing.Size(88, 26);
             this.label3.TabIndex = 3;
             this.label3.Text = "Campo";
             // 
@@ -242,9 +251,10 @@
             this.criterioComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.criterioComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.criterioComboBox.FormattingEnabled = true;
-            this.criterioComboBox.Location = new System.Drawing.Point(742, 53);
+            this.criterioComboBox.Location = new System.Drawing.Point(1484, 102);
+            this.criterioComboBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.criterioComboBox.Name = "criterioComboBox";
-            this.criterioComboBox.Size = new System.Drawing.Size(81, 21);
+            this.criterioComboBox.Size = new System.Drawing.Size(158, 33);
             this.criterioComboBox.TabIndex = 2;
             // 
             // campoComboBox
@@ -254,9 +264,10 @@
             this.campoComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.campoComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.campoComboBox.FormattingEnabled = true;
-            this.campoComboBox.Location = new System.Drawing.Point(648, 53);
+            this.campoComboBox.Location = new System.Drawing.Point(1296, 102);
+            this.campoComboBox.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.campoComboBox.Name = "campoComboBox";
-            this.campoComboBox.Size = new System.Drawing.Size(77, 21);
+            this.campoComboBox.Size = new System.Drawing.Size(150, 34);
             this.campoComboBox.TabIndex = 1;
             this.campoComboBox.SelectedIndexChanged += new System.EventHandler(this.CbxCampo_SelectedIndexChanged);
             // 
@@ -267,9 +278,10 @@
             this.containerPanel2.Controls.Add(this.siguienteImgButton);
             this.containerPanel2.Controls.Add(this.dgvArticulos);
             this.containerPanel2.Controls.Add(this.articleImage);
-            this.containerPanel2.Location = new System.Drawing.Point(12, 117);
+            this.containerPanel2.Location = new System.Drawing.Point(24, 225);
+            this.containerPanel2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.containerPanel2.Name = "containerPanel2";
-            this.containerPanel2.Size = new System.Drawing.Size(1131, 309);
+            this.containerPanel2.Size = new System.Drawing.Size(2262, 594);
             this.containerPanel2.TabIndex = 9;
             // 
             // addImgButton
@@ -282,11 +294,11 @@
             this.addImgButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.addImgButton.Image = ((System.Drawing.Image)(resources.GetObject("addImgButton.Image")));
             this.addImgButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addImgButton.Location = new System.Drawing.Point(20, 260);
-            this.addImgButton.Margin = new System.Windows.Forms.Padding(20, 3, 40, 3);
+            this.addImgButton.Location = new System.Drawing.Point(40, 500);
+            this.addImgButton.Margin = new System.Windows.Forms.Padding(40, 6, 80, 6);
             this.addImgButton.Name = "addImgButton";
             this.addImgButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.addImgButton.Size = new System.Drawing.Size(195, 33);
+            this.addImgButton.Size = new System.Drawing.Size(390, 63);
             this.addImgButton.TabIndex = 12;
             this.addImgButton.Text = "Añadir imagen nueva";
             this.addImgButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -299,9 +311,10 @@
             this.siguienteImgButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("siguienteImgButton.BackgroundImage")));
             this.siguienteImgButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.siguienteImgButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.siguienteImgButton.Location = new System.Drawing.Point(258, 260);
+            this.siguienteImgButton.Location = new System.Drawing.Point(516, 500);
+            this.siguienteImgButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.siguienteImgButton.Name = "siguienteImgButton";
-            this.siguienteImgButton.Size = new System.Drawing.Size(33, 33);
+            this.siguienteImgButton.Size = new System.Drawing.Size(66, 63);
             this.siguienteImgButton.TabIndex = 12;
             this.siguienteImgButton.TabStop = false;
             this.siguienteImgButton.Click += new System.EventHandler(this.siguienteImgButton_Click);
@@ -310,12 +323,13 @@
             // 
             this.dgvArticulos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(314, 0);
+            this.dgvArticulos.Location = new System.Drawing.Point(628, 0);
+            this.dgvArticulos.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.ReadOnly = true;
             this.dgvArticulos.RowHeadersWidth = 82;
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(817, 309);
+            this.dgvArticulos.Size = new System.Drawing.Size(1634, 594);
             this.dgvArticulos.TabIndex = 1;
             this.dgvArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellContentClick);
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
@@ -325,9 +339,10 @@
             this.articleImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.articleImage.ErrorImage = ((System.Drawing.Image)(resources.GetObject("articleImage.ErrorImage")));
             this.articleImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("articleImage.InitialImage")));
-            this.articleImage.Location = new System.Drawing.Point(5, 5);
+            this.articleImage.Location = new System.Drawing.Point(10, 10);
+            this.articleImage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.articleImage.Name = "articleImage";
-            this.articleImage.Size = new System.Drawing.Size(299, 299);
+            this.articleImage.Size = new System.Drawing.Size(594, 571);
             this.articleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.articleImage.TabIndex = 0;
             this.articleImage.TabStop = false;
@@ -342,10 +357,10 @@
             this.modifyButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(140)))), ((int)(((byte)(95)))));
             this.modifyButton.Image = ((System.Drawing.Image)(resources.GetObject("modifyButton.Image")));
             this.modifyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.modifyButton.Location = new System.Drawing.Point(645, 444);
-            this.modifyButton.Margin = new System.Windows.Forms.Padding(20, 3, 20, 3);
+            this.modifyButton.Location = new System.Drawing.Point(1290, 854);
+            this.modifyButton.Margin = new System.Windows.Forms.Padding(40, 6, 40, 6);
             this.modifyButton.Name = "modifyButton";
-            this.modifyButton.Size = new System.Drawing.Size(240, 33);
+            this.modifyButton.Size = new System.Drawing.Size(480, 63);
             this.modifyButton.TabIndex = 10;
             this.modifyButton.Text = "Modificar articulo seleccionado";
             this.modifyButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -362,10 +377,10 @@
             this.deleteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(108)))), ((int)(((byte)(85)))));
             this.deleteButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteButton.Image")));
             this.deleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.deleteButton.Location = new System.Drawing.Point(61, 444);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(40, 3, 20, 3);
+            this.deleteButton.Location = new System.Drawing.Point(122, 854);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(80, 6, 40, 6);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(215, 33);
+            this.deleteButton.Size = new System.Drawing.Size(430, 63);
             this.deleteButton.TabIndex = 11;
             this.deleteButton.Text = "Borrar articulo seleccionado";
             this.deleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -374,15 +389,16 @@
             // 
             // frmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(221)))), ((int)(((byte)(229)))));
-            this.ClientSize = new System.Drawing.Size(1158, 501);
+            this.ClientSize = new System.Drawing.Size(2316, 963);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.modifyButton);
             this.Controls.Add(this.containerPanel2);
             this.Controls.Add(this.containerPanel1);
             this.Controls.Add(this.addButton);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "frmPrincipal";
             this.Text = "Ventana Princial";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);

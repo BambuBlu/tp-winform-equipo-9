@@ -328,57 +328,41 @@ namespace tpWinformGroup9
 
         private void CargarMarcaCbo()
         {
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-            listaArticulos = articuloNegocio.listar();
-            List<string> marcaUnicas = new List<string>();
-
-            foreach (var articulo in listaArticulos) 
-            {
-                if (!marcaUnicas.Contains(articulo.Marca.ToString()))
-                {
-                    marcaUnicas.Add(articulo.Marca.ToString());
-                }
-            }
-            marcaComboBox.DataSource = marcaUnicas;
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            List<Marca> listaMarcas = marcaNegocio.listar().Distinct().ToList();
+            marcaComboBox.DataSource = listaMarcas;
+            marcaComboBox.SelectedItem = null;
         }
         private void CargarCategoriaCbo() 
         {
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-            listaArticulos = articuloNegocio.listar();
-            List<string> categoriaUnicas = new List<string>();
-
-            foreach (var articulo in listaArticulos)
-            {
-                if (!categoriaUnicas.Contains(articulo.Categoria.ToString()))
-                {
-                    categoriaUnicas.Add(articulo.Categoria.ToString());
-                }
-            }
-            categoriacomboBox.DataSource = categoriaUnicas;
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            List<Categoria> listaCategorias = categoriaNegocio.listar().Distinct().ToList();
+            categoriacomboBox.DataSource = listaCategorias;
+            categoriacomboBox.SelectedItem = null;
 
         }
 
-        private void categoriacomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void categoriacomboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             string marca = "";
             string categoria = "";
             try
             {
-                
-               
+
+
                 if (marcaComboBox.SelectedItem != null)
                 {
-                     marca = marcaComboBox.SelectedItem.ToString();
+                    marca = marcaComboBox.SelectedItem.ToString();
                 }
-               
-              
+
+
                 if (categoriacomboBox.SelectedItem != null)
                 {
-                   categoria = categoriacomboBox.SelectedItem.ToString();
+                    categoria = categoriacomboBox.SelectedItem.ToString();
                 }
-               
-                
+
+
 
 
                 List<Articulo> lista_filtrada = new List<Articulo>();
@@ -400,27 +384,27 @@ namespace tpWinformGroup9
             }
         }
 
-        private void marcaComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void marcaComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             string marca = "";
             string categoria = "";
             try
             {
-                
-               
+
+
                 if (marcaComboBox.SelectedItem != null)
                 {
-                     marca = marcaComboBox.SelectedItem.ToString();
+                    marca = marcaComboBox.SelectedItem.ToString();
                 }
-              
-              
+
+
                 if (categoriacomboBox.SelectedItem != null)
                 {
-                   categoria = categoriacomboBox.SelectedItem.ToString();
+                    categoria = categoriacomboBox.SelectedItem.ToString();
                 }
-               
-                
+
+
 
 
                 List<Articulo> lista_filtrada = new List<Articulo>();
