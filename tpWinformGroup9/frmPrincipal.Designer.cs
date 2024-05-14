@@ -31,12 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.addButton = new System.Windows.Forms.Button();
             this.containerPanel1 = new System.Windows.Forms.Panel();
+            this.LabCategoria = new System.Windows.Forms.Label();
+            this.labMarca = new System.Windows.Forms.Label();
+            this.categoriacomboBox = new System.Windows.Forms.ComboBox();
+            this.marcaComboBox = new System.Windows.Forms.ComboBox();
             this.btnReestablecer = new System.Windows.Forms.Button();
             this.buttonBuscarFiltro = new System.Windows.Forms.Button();
             this.textBoxFiltro = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.criterioComboBox = new System.Windows.Forms.ComboBox();
             this.campoComboBox = new System.Windows.Forms.ComboBox();
             this.containerPanel2 = new System.Windows.Forms.Panel();
@@ -46,11 +51,6 @@
             this.articleImage = new System.Windows.Forms.PictureBox();
             this.modifyButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.marcaComboBox = new System.Windows.Forms.ComboBox();
-            this.categoriacomboBox = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labMarca = new System.Windows.Forms.Label();
-            this.LabCategoria = new System.Windows.Forms.Label();
             this.containerPanel1.SuspendLayout();
             this.containerPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siguienteImgButton)).BeginInit();
@@ -100,6 +100,53 @@
             this.containerPanel1.Name = "containerPanel1";
             this.containerPanel1.Size = new System.Drawing.Size(1131, 105);
             this.containerPanel1.TabIndex = 7;
+            // 
+            // LabCategoria
+            // 
+            this.LabCategoria.AutoSize = true;
+            this.LabCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabCategoria.Location = new System.Drawing.Point(460, 26);
+            this.LabCategoria.Name = "LabCategoria";
+            this.LabCategoria.Size = new System.Drawing.Size(61, 13);
+            this.LabCategoria.TabIndex = 16;
+            this.LabCategoria.Text = "Categoria";
+            this.LabCategoria.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // labMarca
+            // 
+            this.labMarca.AutoSize = true;
+            this.labMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labMarca.Location = new System.Drawing.Point(553, 26);
+            this.labMarca.Name = "labMarca";
+            this.labMarca.Size = new System.Drawing.Size(42, 13);
+            this.labMarca.TabIndex = 15;
+            this.labMarca.Text = "Marca";
+            // 
+            // categoriacomboBox
+            // 
+            this.categoriacomboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.categoriacomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.categoriacomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.categoriacomboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoriacomboBox.FormattingEnabled = true;
+            this.categoriacomboBox.Location = new System.Drawing.Point(452, 53);
+            this.categoriacomboBox.Name = "categoriacomboBox";
+            this.categoriacomboBox.Size = new System.Drawing.Size(77, 21);
+            this.categoriacomboBox.TabIndex = 14;
+            this.categoriacomboBox.SelectedIndexChanged += new System.EventHandler(this.categoriacomboBox_SelectedIndexChanged);
+            // 
+            // marcaComboBox
+            // 
+            this.marcaComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
+            this.marcaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.marcaComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.marcaComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.marcaComboBox.FormattingEnabled = true;
+            this.marcaComboBox.Location = new System.Drawing.Point(546, 52);
+            this.marcaComboBox.Name = "marcaComboBox";
+            this.marcaComboBox.Size = new System.Drawing.Size(77, 21);
+            this.marcaComboBox.TabIndex = 13;
+            this.marcaComboBox.SelectedIndexChanged += new System.EventHandler(this.marcaComboBox_SelectedIndexChanged);
             // 
             // btnReestablecer
             // 
@@ -178,6 +225,16 @@
             this.label2.Size = new System.Drawing.Size(274, 31);
             this.label2.TabIndex = 8;
             this.label2.Text = "Filtros de Busqueda";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(657, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Campo";
             // 
             // criterioComboBox
             // 
@@ -314,63 +371,6 @@
             this.deleteButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
-            // 
-            // marcaComboBox
-            // 
-            this.marcaComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
-            this.marcaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.marcaComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.marcaComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.marcaComboBox.FormattingEnabled = true;
-            this.marcaComboBox.Location = new System.Drawing.Point(546, 52);
-            this.marcaComboBox.Name = "marcaComboBox";
-            this.marcaComboBox.Size = new System.Drawing.Size(77, 21);
-            this.marcaComboBox.TabIndex = 13;
-           
-            // 
-            // categoriacomboBox
-            // 
-            this.categoriacomboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(233)))), ((int)(((byte)(233)))));
-            this.categoriacomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.categoriacomboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.categoriacomboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoriacomboBox.FormattingEnabled = true;
-            this.categoriacomboBox.Location = new System.Drawing.Point(452, 53);
-            this.categoriacomboBox.Name = "categoriacomboBox";
-            this.categoriacomboBox.Size = new System.Drawing.Size(77, 21);
-            this.categoriacomboBox.TabIndex = 14;
-           
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(657, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Campo";
-            // 
-            // labMarca
-            // 
-            this.labMarca.AutoSize = true;
-            this.labMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labMarca.Location = new System.Drawing.Point(553, 26);
-            this.labMarca.Name = "labMarca";
-            this.labMarca.Size = new System.Drawing.Size(42, 13);
-            this.labMarca.TabIndex = 15;
-            this.labMarca.Text = "Marca";
-            // 
-            // LabCategoria
-            // 
-            this.LabCategoria.AutoSize = true;
-            this.LabCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabCategoria.Location = new System.Drawing.Point(460, 26);
-            this.LabCategoria.Name = "LabCategoria";
-            this.LabCategoria.Size = new System.Drawing.Size(61, 13);
-            this.LabCategoria.TabIndex = 16;
-            this.LabCategoria.Text = "Categoria";
-            this.LabCategoria.Click += new System.EventHandler(this.label6_Click);
             // 
             // frmPrincipal
             // 

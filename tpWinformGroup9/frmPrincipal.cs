@@ -358,8 +358,88 @@ namespace tpWinformGroup9
 
         }
 
-      
+        private void categoriacomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            string marca = "";
+            string categoria = "";
+            try
+            {
+                
+               
+                if (marcaComboBox.SelectedItem != null)
+                {
+                     marca = marcaComboBox.SelectedItem.ToString();
+                }
+               
+              
+                if (categoriacomboBox.SelectedItem != null)
+                {
+                   categoria = categoriacomboBox.SelectedItem.ToString();
+                }
+               
+                
 
-     
+
+                List<Articulo> lista_filtrada = new List<Articulo>();
+                lista_filtrada = negocio.filtrarMarcaCategoria(marca, categoria);
+                agruparImagenes(lista_filtrada);
+                eliminarRepetidos(lista_filtrada);
+                dgvArticulos.DataSource = lista_filtrada;
+
+                if (dgvArticulos.CurrentRow == null)
+                {
+                    MessageBox.Show("No se ha encontrado ningun resultado");
+                    CargarDataGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void marcaComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            string marca = "";
+            string categoria = "";
+            try
+            {
+                
+               
+                if (marcaComboBox.SelectedItem != null)
+                {
+                     marca = marcaComboBox.SelectedItem.ToString();
+                }
+              
+              
+                if (categoriacomboBox.SelectedItem != null)
+                {
+                   categoria = categoriacomboBox.SelectedItem.ToString();
+                }
+               
+                
+
+
+                List<Articulo> lista_filtrada = new List<Articulo>();
+                lista_filtrada = negocio.filtrarMarcaCategoria(marca, categoria);
+                agruparImagenes(lista_filtrada);
+                eliminarRepetidos(lista_filtrada);
+                dgvArticulos.DataSource = lista_filtrada;
+
+                if (dgvArticulos.CurrentRow == null)
+                {
+                    MessageBox.Show("No se ha encontrado ningun resultado");
+                    CargarDataGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
