@@ -37,5 +37,27 @@ namespace tpWinformGroup9.Negocio
             }
         }
 
+        public void Eliminar(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta("delete from CATEGORIA where id = @id");
+                datos.setParametro("@id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
+        }
+
     }
 }

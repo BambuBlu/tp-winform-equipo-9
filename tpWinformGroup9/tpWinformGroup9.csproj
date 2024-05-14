@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="abmMarcaCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="abmMarcaCategoria.Designer.cs">
+      <DependentUpon>abmMarcaCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="addImage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="abmMarcaCategoria.resx">
+      <DependentUpon>abmMarcaCategoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="addImage.resx">
       <DependentUpon>addImage.cs</DependentUpon>
     </EmbeddedResource>

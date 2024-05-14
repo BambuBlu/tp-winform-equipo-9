@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System;
 using tpWinformGroup9.Modelo;
+using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace tpWinformGroup9.Negocio
 {
@@ -35,6 +38,28 @@ namespace tpWinformGroup9.Negocio
             {
                 accesoDatos.cerrarConexion();
             }
+        }
+
+        public void Eliminar(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setConsulta("delete from MARCAS where id = @id");
+                datos.setParametro("@id", id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
         }
     }
 }

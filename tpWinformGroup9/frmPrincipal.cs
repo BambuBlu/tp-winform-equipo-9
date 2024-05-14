@@ -351,11 +351,6 @@ namespace tpWinformGroup9
             nueva_imagen.ShowDialog();
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void CargarMarcaCbo()
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
@@ -375,11 +370,15 @@ namespace tpWinformGroup9
         private void modifyMarcaButton_Click(object sender, EventArgs e)
         {
 
+            abmMarcaCategoria abmMarca = new abmMarcaCategoria(true);
+            abmMarca.ShowDialog();
         }
 
         private void modifyCategoriaButton_Click(object sender, EventArgs e)
         {
 
+            abmMarcaCategoria abmMarcaCategoria = new abmMarcaCategoria(false);
+            abmMarcaCategoria.ShowDialog();
         }
 
 

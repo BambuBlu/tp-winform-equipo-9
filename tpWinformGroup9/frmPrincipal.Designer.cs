@@ -154,7 +154,7 @@
             this.LabCategoria.Size = new System.Drawing.Size(61, 13);
             this.LabCategoria.TabIndex = 16;
             this.LabCategoria.Text = "Categoria";
-            this.LabCategoria.Click += new System.EventHandler(this.label6_Click);
+            ///this.LabCategoria.Click += new System.EventHandler(this.label6_Click);
             // 
             // labMarca
             // 
