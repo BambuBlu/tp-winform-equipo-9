@@ -126,6 +126,7 @@
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.abmTextBox);
             this.Controls.Add(this.dgvMarcaCategoria);
+            this.MinimumSize = new System.Drawing.Size(391, 342);
             this.Name = "abmMarcaCategoria";
             this.Text = "abmMarcaCategoria";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarcaCategoria)).EndInit();

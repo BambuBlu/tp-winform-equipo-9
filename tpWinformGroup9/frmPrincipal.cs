@@ -215,34 +215,45 @@ namespace tpWinformGroup9
             ArticuloNegocio negocio = new ArticuloNegocio();
             string marca = "";
             string categoria = "";
+            string campo = "";
+            string criterio = "";
+            string filtro = "";
+
             try
             {
-                List<Articulo> lista_filtrada = new List<Articulo>();
+
+                List<Articulo> listaArticulos = new List<Articulo>();
+                listaArticulos = negocio.listar();
+                agruparImagenes(listaArticulos);
+                eliminarRepetidos(listaArticulos);
+
                 if (marcaComboBox.SelectedItem != null)
                 {
                     marca = marcaComboBox.SelectedItem.ToString();
                 }
 
-
                 if (categoriacomboBox.SelectedItem != null)
                 {
                     categoria = categoriacomboBox.SelectedItem.ToString();
                 }
-                lista_filtrada = negocio.filtrarMarcaCategoria(marca, categoria);
+                listaArticulos = negocio.filtrarMarcaCategoria(listaArticulos, marca, categoria);
 
-                if (validarFiltro())
+
+                if(campoComboBox.SelectedItem == null || criterioComboBox.SelectedItem == null || textBoxFiltro.Text.Count() == 0)
                 {
-                    dgvArticulos.DataSource = lista_filtrada;
+                    //validarFiltro();
+                    dgvArticulos.DataSource = listaArticulos;
                     return;
                 }
-                string campo = campoComboBox.SelectedItem.ToString();
-                string criterio = criterioComboBox.SelectedItem.ToString();
-                string filtro = textBoxFiltro.Text;
 
-                lista_filtrada = negocio.filtrar(lista_filtrada, campo, criterio, filtro);
-                agruparImagenes(lista_filtrada);
-                eliminarRepetidos(lista_filtrada);
-                dgvArticulos.DataSource = lista_filtrada;
+                campo = campoComboBox.SelectedItem.ToString();
+                criterio = criterioComboBox.SelectedItem.ToString();
+                filtro = textBoxFiltro.Text;
+
+
+                listaArticulos = negocio.filtrarCriterios(listaArticulos, campo, criterio, filtro);
+
+                dgvArticulos.DataSource = listaArticulos;
 
                 if (dgvArticulos.CurrentRow == null)
                 {
@@ -256,18 +267,16 @@ namespace tpWinformGroup9
             }
         }
 
-        private bool validarFiltro()
+        private void validarFiltro()
         {
 
             if (campoComboBox.SelectedIndex < 0)
             {
                 MessageBox.Show("Por favor, seleccione el campo para filtrar.");
-                return true;
             }
             if (criterioComboBox.SelectedIndex < 0)
             {
                 MessageBox.Show("Por favor, seleccione el criterio para filtrar.");
-                return true;
             }
             if (campoComboBox.SelectedItem.ToString() == "ID")
             {
@@ -275,16 +284,13 @@ namespace tpWinformGroup9
                 if (string.IsNullOrEmpty(textBoxFiltro.Text))
                 {
                     MessageBox.Show("Debes cargar el filtro para numericos...");
-                    return true;
                 }
 
                 if (!(soloNumeros(textBoxFiltro.Text)))
                 {
                     MessageBox.Show("Solo numeros para filtrar por el campo numerico...");
-                    return true;
                 }
             }
-            return false;
         }
 
         private bool soloNumeros(string cadena)

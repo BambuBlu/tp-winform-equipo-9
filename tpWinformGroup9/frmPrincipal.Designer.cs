@@ -154,7 +154,6 @@
             this.LabCategoria.Size = new System.Drawing.Size(61, 13);
             this.LabCategoria.TabIndex = 16;
             this.LabCategoria.Text = "Categoria";
-            ///this.LabCategoria.Click += new System.EventHandler(this.label6_Click);
             // 
             // labMarca
             // 
@@ -425,6 +424,7 @@
             this.Controls.Add(this.containerPanel2);
             this.Controls.Add(this.containerPanel1);
             this.Controls.Add(this.addButton);
+            this.MinimumSize = new System.Drawing.Size(1174, 540);
             this.Name = "frmPrincipal";
             this.Text = "Ventana Princial";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);

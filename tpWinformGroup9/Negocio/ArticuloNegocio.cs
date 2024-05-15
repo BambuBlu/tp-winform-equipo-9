@@ -318,7 +318,7 @@ namespace tpWinformGroup9.Negocio
             }
         }*/
 
-        public List<Articulo> filtrar(List<Articulo> listaArticulos, string campo, string criterio, string filtro)
+        public List<Articulo> filtrarCriterios(List<Articulo> listaArticulos, string campo, string criterio, string filtro)
         {
             List<Articulo> filtrados = new List<Articulo>();
 
@@ -345,7 +345,7 @@ namespace tpWinformGroup9.Negocio
                                 break;
 
                             default:
-                                if (articulo.ID >= int.Parse(filtro))
+                                if (articulo.ID == int.Parse(filtro))
                                 {
                                     filtrados.Add(articulo);
                                 }
@@ -412,13 +412,59 @@ namespace tpWinformGroup9.Negocio
             return filtrados;
         }
 
-        public List<Articulo> filtrarMarcaCategoria(string marca, string categoria)
+        public List<Articulo> filtrarMarcaCategoria(List<Articulo> lista, string marca, string categoria)
         {
-            List<Articulo> lista = new List<Articulo>();
+            List<Articulo> filtrados = new List<Articulo>();
+
+            if (marca.Count() > 0 && !(categoria.Count() > 0))
+            {
+                foreach (Articulo articulo in lista)
+                {
+                    if (articulo.Marca.Descripcion == marca)
+                    {
+                        filtrados.Add(articulo);
+                    }
+                }
+            }
+            else if (!(marca.Count() > 0) && categoria.Count() > 0)
+            {
+                foreach (Articulo articulo in lista)
+                {
+                    if (articulo.Categoria.Descripcion == categoria)
+                    {
+                        filtrados.Add(articulo);
+                    }
+                }
+            }
+            else if(marca.Count() > 0 && categoria.Count() > 0)
+            {
+                foreach (Articulo articulo in lista)
+                {
+                    if (articulo.Marca.Descripcion == marca && articulo.Categoria.Descripcion == categoria)
+                    {
+                        filtrados.Add(articulo);
+                    }
+                }
+            }
+            else
+            {
+                return lista;
+            }
+
+            return filtrados;
+        }
+
+        /*public List<Articulo> filtrarMarcaCategoria(List<Articulo> lista, string marca, string categoria)
+        {
             AccesoDatos datos = new AccesoDatos();
             string consulta = "";
             try
             {
+                if(marca.Count() == 0 && categoria.Count() == 0)
+                {
+                    return lista;
+                }
+
                 if(marca.Count() > 0 && !(categoria.Count() > 0))
                 {
                     consulta = "SELECT DISTINCT a.Id, a.Codigo, a.Nombre, a.Descripcion, a.IdMarca as marca, a.IdCategoria as categoria, a.Precio, m.Descripcion as mdescripcion, i.ImagenUrl as link, c.Descripcion as cdescripcion FROM ARTICULOS a LEFT JOIN MARCAS m ON m.Id = a.IdMarca LEFT JOIN IMAGENES i ON i.IdArticulo = a.Id LEFT JOIN CATEGORIAS c ON c.Id = a.IdCategoria WHERE m.Descripcion = @marca";
@@ -500,7 +546,7 @@ namespace tpWinformGroup9.Negocio
             {
                 throw ex;
             }
-        }
+        }*/
     }
    
 } 

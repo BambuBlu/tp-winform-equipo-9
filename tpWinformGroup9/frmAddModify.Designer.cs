@@ -373,7 +373,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(221)))), ((int)(((byte)(229)))));
-            this.ClientSize = new System.Drawing.Size(451, 628);
+            this.ClientSize = new System.Drawing.Size(451, 607);
             this.Controls.Add(this.continueButton);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.panel8);
@@ -384,6 +384,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MinimumSize = new System.Drawing.Size(467, 646);
             this.Name = "frmAddModify";
             this.Text = "Agregar o Modificar";
             this.Load += new System.EventHandler(this.frmAddModify_Load);

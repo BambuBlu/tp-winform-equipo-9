@@ -103,6 +103,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.continueButton);
             this.Controls.Add(this.urlTextBox);
+            this.MinimumSize = new System.Drawing.Size(373, 446);
             this.Name = "addImage";
             this.Text = "Añadir imagen a articulo";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
